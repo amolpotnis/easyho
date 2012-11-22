@@ -47,3 +47,5 @@ gem 'nokogiri'
 group :test, :development do
   gem 'thin'
 end
+
+gem 'tinymce-rails'
