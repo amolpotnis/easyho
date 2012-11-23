@@ -1,0 +1,36 @@
+= render :partial => "patients/patient_basic_info",:locals => {:curselect => "contacts"}
+
+%div.row.well{:id => "personalcontact"}
+  %h3.center Personal contact information
+  %div.span8    
+    %p
+      %strong Address:
+      %br
+      Flat 11, Building B1, Harmonoy Scoiety, Aundh, Pune, 411007.
+  %div.span3
+    %p
+      %strong Mobile: 
+      +91 9850814851
+    %p
+      %strong Home: 
+      020-2588063
+    %p
+      %strong Email: 
+      amolpotnis@gmail.com
+
+%div.row.well{:id => "officecontact"}
+  %h3.center Office contact information
+  %div.span8    
+    %p
+      %strong Address:
+      %br
+      GS Lab.
+  %div.span3
+    %p
+      %strong Phone:
+    %p 
+      %strong Extension: 
+    %p
+      %strong Email: 
+      amolpotnis@kpoint.com
+     

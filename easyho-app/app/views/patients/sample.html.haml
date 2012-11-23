@@ -4,8 +4,7 @@
 = tinymce_assets
 
 
-%div.well
-  %h3 Patients basic details
+= render :partial => "patients/patient_basic_info",:locals => {:curselect => "history"}
 %div.container
   %div.row
     /
@@ -65,8 +64,7 @@
         /
         / Using tinymce editor with one text box
         /= text_area_tag :editor, "", :class => "tinymce", :rows => 20, :cols => 120
-        = text_area_tag :editor, "", :class => "tinymce", :rows => 10,:cols => 200
-        
+        /= text_area_tag :editor, "", :class => "tinymce", :rows => 10,:cols => 200
       %div{:id => "sec1"}
         %h3 Section 1
         %div.well
@@ -106,10 +104,15 @@
         %h3 Section 9
         %p 
           Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
-      %div{:id => "sec10"}
+          
+      %div{:id => "sec10_container"}
         %h3 Section 10
-        %p 
-          Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %a{:id => "sec10_edit_link", :href => '#sec10_container', :onclick => "showEdit('sec10')"} Edit
+        %div{:id => 'sec10_normal'}
+        %div.hide{:id => "sec10_edit"}
+          = text_area_tag :sec10_editor, "", :class => "tinymce", :rows => 10,:cols => 200
+          %a{:href => '#sec10_container', :onclick => "saveEdit('sec10')"} save
+          %a{:href => '#sec10_container', :onclick => "cancelEdit('sec10')"} cancel
           
 /
 / default initialization of tinymce ditor control. You need this init only once on a page
@@ -117,7 +120,9 @@
 = tinymce
 
 
-          
+/
+/ Following javascript was needed to scroll the left-side section-list till top and then get hooed there.
+/          
 :javascript
   var windw = this;
   $.fn.followTo = function ( pos ) {
@@ -137,5 +142,37 @@
       }
     });
   };
-  $('.profilesubsections').followTo(140);                      
+  $('.profilesubsections').followTo(140);  
+  //----------------------------------------
+  showEdit = function(id) {
+    edit_div = $('#' + id + '_edit');
+    normal_div = $('#' + id + '_normal'); 
+    edit_div.removeClass('hide');
+    normal_div.addClass('hide'); 
+    $('#' + id +'_edit_link').addClass('hide');
+    //alert(normal_div.html());
+    tinyMCE.get(id + '_editor').setContent(normal_div.html());
+    tinyMCE.get(id + '_editor').theme.resizeTo(650, 200)
+  }     
+  
+  cancelEdit = function(id) {
+    edit_div = $('#' + id + '_edit');
+    normal_div = $('#' + id + '_normal'); 
+    tinyMCE.get(id + '_editor').setContent("");
+    edit_div.addClass('hide');
+    normal_div.removeClass('hide');
+    $('#' + id +'_edit_link').removeClass('hide'); 
+  }
+  
+  saveEdit = function(id) {
+    edit_div = $('#' + id + '_edit');
+    normal_div = $('#' + id + '_normal'); 
+    //alert(tinyMCE.get(id + '_editor').getContent());
+    normal_div.html(tinyMCE.get(id + '_editor').getContent());
+    normal_div.removeClass('hide');
+    $('#' + id +'_edit_link').removeClass('hide');
+    
+    edit_div.addClass('hide');
+    tinyMCE.get(id + '_editor').setContent(""); 
+  }                     
 

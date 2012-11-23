@@ -58,4 +58,6 @@ EasyhoApp::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   
   match 'sample' => 'patients#sample'
+  match 'patientcontact' => 'patients#contact'
+  match 'followups' => 'patients#followups'
 end

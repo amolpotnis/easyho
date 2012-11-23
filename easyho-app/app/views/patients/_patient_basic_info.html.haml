@@ -1,0 +1,24 @@
+%div.row.basicinfo.well
+  %div.span7
+    %h3 Amol Potnis
+  %div.span4.pull-right
+    %h3 OPD Number: VGK-1124
+  %div.span10{:id => "patient_menus"}
+    %ul.nav.nav-pills{:id => "tmp"}
+      -if curselect == "contacts"
+        %li.active
+          %a{:href => patientcontact_path} Contact information
+      -else
+        %li
+          %a{:href => patientcontact_path} Contact information
+      -if curselect == "history"
+        %li.active
+          %a{:href => sample_path} Case history
+      -else
+        %li
+          %a{:href => sample_path} Case history
+      %li
+        %a{:href => sample_path} Followups
+      %li
+        %a{:href => sample_path} Symptoms chart
+        
