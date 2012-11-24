@@ -12,107 +12,133 @@
     /
     %div.span3.profilesubsections
       %ul.nav.nav-list
-        /%li
-        /  %a{:href => "#sec0"}
-        /    Basic info
-        /    %i.icon-chevron-right
         %li
           %a{:href => "#sec1"}
             Section-1
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
         %li
           %a{:href => "#sec2"}
             Section-2
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
         %li
           %a{:href => "#sec3"}
             Section-3 has longer n
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
         %li
           %a{:href => "#sec4"}
             Section-4
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
         %li
           %a{:href => "#sec5"}
             Section-5 
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
         %li
           %a{:href => "#sec6"}
             Section-6 
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
         %li
           %a{:href => "#sec7"}
             Section-7 
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
         %li
           %a{:href => "#sec8"}
             Section-8 
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
         %li
           %a{:href => "#sec9"}
             Section-9 
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
         %li
           %a{:href => "#sec10"}
             Section-10 
-            %i.icon-chevron-right
+            /%i.icon-chevron-right
     /
     / Scrollable target
     /
     %div.span9{:id => "to-Scroll"}
+      %h3 This case history is created on 17th December 1975.
+      %br
       %div
         /
         / Using tinymce editor with one text box
         /= text_area_tag :editor, "", :class => "tinymce", :rows => 20, :cols => 120
         /= text_area_tag :editor, "", :class => "tinymce", :rows => 10,:cols => 200
       %div{:id => "sec1"}
-        %h3 Section 1
-        %div.well
-          %h4 17 December 2012
-          %div.well
-            %p
-              Barack Hussein Obama II (i/bəˈrɑːk huːˈseɪn oʊˈbɑːmə/; born August 4, 1961) is the 44th and current President of the United States. He is the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney in Chicago and taught constitutional law at the University of Chicago Law School from 1992 to 2004. He served three terms representing the 13th District in the Illinois Senate from 1997 to 2004, running unsuccessfully for the United States House of Representatives in 2000. Several events earned Obama national attention during his campaign to represent the State of Illinois in the United States Senate in 2004, including his victory in the March 2004 Illinois Democratic primary and his keynote address at the Democratic National Convention in July 2004. He won the Senate election in November 2004. After a close race in the 2008 Democratic Party presidential primaries, he won his party's nomination against Hillary Rodham Clinton. In the 2008 presidential election, he defeated Republican nominee John McCain, and was inaugurated as president on January 20, 2009. Nine months later, Obama was named the 2009 Nobel Peace Prize laureate. In November 2012, he was elected to a second term as president, defeating Republican nominee Mitt Romney.[4] In his first term as president, Obama signed economic stimulus legislation in the form of the American Recovery and Reinvestment Act of 2009 and the Tax Relief, Unemployment Insurance Reauthorization, and Job Creation Act of 2010 in response to the 2007–2009 recession in the United States. Other major domestic policy initiatives include the Patient Protection and Affordable Care Act, the Dodd–Frank Wall Street Reform and Consumer Protection Act, the Don't Ask, Don't Tell Repeal Act of 2010, and the Budget Control Act of 2011. In foreign policy, Obama ended U.S. military involvement in the Iraq War, increased troop levels in Afghanistan, signed the New START arms control treaty with Russia, ordered U.S. military involvement in Libya, and ordered the military operation that resulted in the death of Osama bin Laden. In May 2012, he became the first sitting U.S. president to publicly support legalizing same-sex marriage.
+        %div.section_title
+          %h3 Section 1
+        %div.section_content
+          %p
+            Barack Hussein Obama II (i/bəˈrɑːk huːˈseɪn oʊˈbɑːmə/; born August 4, 1961) is the 44th and current President of the United States. He is the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney in Chicago and taught constitutional law at the University of Chicago Law School from 1992 to 2004. He served three terms representing the 13th District in the Illinois Senate from 1997 to 2004, running unsuccessfully for the United States House of Representatives in 2000. Several events earned Obama national attention during his campaign to represent the State of Illinois in the United States Senate in 2004, including his victory in the March 2004 Illinois Democratic primary and his keynote address at the Democratic National Convention in July 2004. He won the Senate election in November 2004. After a close race in the 2008 Democratic Party presidential primaries, he won his party's nomination against Hillary Rodham Clinton. In the 2008 presidential election, he defeated Republican nominee John McCain, and was inaugurated as president on January 20, 2009. Nine months later, Obama was named the 2009 Nobel Peace Prize laureate. In November 2012, he was elected to a second term as president, defeating Republican nominee Mitt Romney.[4] In his first term as president, Obama signed economic stimulus legislation in the form of the American Recovery and Reinvestment Act of 2009 and the Tax Relief, Unemployment Insurance Reauthorization, and Job Creation Act of 2010 in response to the 2007–2009 recession in the United States. Other major domestic policy initiatives include the Patient Protection and Affordable Care Act, the Dodd–Frank Wall Street Reform and Consumer Protection Act, the Don't Ask, Don't Tell Repeal Act of 2010, and the Budget Control Act of 2011. In foreign policy, Obama ended U.S. military involvement in the Iraq War, increased troop levels in Afghanistan, signed the New START arms control treaty with Russia, ordered U.S. military involvement in Libya, and ordered the military operation that resulted in the death of Osama bin Laden. In May 2012, he became the first sitting U.S. president to publicly support legalizing same-sex marriage.
+        %hr.section_end_line      
       %div{:id => "sec2"}
-        %h3 Section 2
-        %p
-          Barack Hussein Obama II (i/bəˈrɑːk huːˈseɪn oʊˈbɑːmə/; born August 4, 1961) is the 44th and current President of the United States. He is the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney in Chicago and taught constitutional law at the University of Chicago Law School from 1992 to 2004. He served three terms representing the 13th District in the Illinois Senate from 1997 to 2004, running unsuccessfully for the United States House of Representatives in 2000. Several events earned Obama national attention during his campaign to represent the State of Illinois in the United States Senate in 2004, including his victory in the March 2004 Illinois Democratic primary and his keynote address at the Democratic National Convention in July 2004. He won the Senate election in November 2004. After a close race in the 2008 Democratic Party presidential primaries, he won his party's nomination against Hillary Rodham Clinton. In the 2008 presidential election, he defeated Republican nominee John McCain, and was inaugurated as president on January 20, 2009. Nine months later, Obama was named the 2009 Nobel Peace Prize laureate. In November 2012, he was elected to a second term as president, defeating Republican nominee Mitt Romney.[4] In his first term as president, Obama signed economic stimulus legislation in the form of the American Recovery and Reinvestment Act of 2009 and the Tax Relief, Unemployment Insurance Reauthorization, and Job Creation Act of 2010 in response to the 2007–2009 recession in the United States. Other major domestic policy initiatives include the Patient Protection and Affordable Care Act, the Dodd–Frank Wall Street Reform and Consumer Protection Act, the Don't Ask, Don't Tell Repeal Act of 2010, and the Budget Control Act of 2011. In foreign policy, Obama ended U.S. military involvement in the Iraq War, increased troop levels in Afghanistan, signed the New START arms control treaty with Russia, ordered U.S. military involvement in Libya, and ordered the military operation that resulted in the death of Osama bin Laden. In May 2012, he became the first sitting U.S. president to publicly support legalizing same-sex marriage.
+        %div.section_title
+          %h3 Section 2
+        %div.section_content
+          %p
+            Barack Hussein Obama II (i/bəˈrɑːk huːˈseɪn oʊˈbɑːmə/; born August 4, 1961) is the 44th and current President of the United States. He is the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney in Chicago and taught constitutional law at the University of Chicago Law School from 1992 to 2004. He served three terms representing the 13th District in the Illinois Senate from 1997 to 2004, running unsuccessfully for the United States House of Representatives in 2000. Several events earned Obama national attention during his campaign to represent the State of Illinois in the United States Senate in 2004, including his victory in the March 2004 Illinois Democratic primary and his keynote address at the Democratic National Convention in July 2004. He won the Senate election in November 2004. After a close race in the 2008 Democratic Party presidential primaries, he won his party's nomination against Hillary Rodham Clinton. In the 2008 presidential election, he defeated Republican nominee John McCain, and was inaugurated as president on January 20, 2009. Nine months later, Obama was named the 2009 Nobel Peace Prize laureate. In November 2012, he was elected to a second term as president, defeating Republican nominee Mitt Romney.[4] In his first term as president, Obama signed economic stimulus legislation in the form of the American Recovery and Reinvestment Act of 2009 and the Tax Relief, Unemployment Insurance Reauthorization, and Job Creation Act of 2010 in response to the 2007–2009 recession in the United States. Other major domestic policy initiatives include the Patient Protection and Affordable Care Act, the Dodd–Frank Wall Street Reform and Consumer Protection Act, the Don't Ask, Don't Tell Repeal Act of 2010, and the Budget Control Act of 2011. In foreign policy, Obama ended U.S. military involvement in the Iraq War, increased troop levels in Afghanistan, signed the New START arms control treaty with Russia, ordered U.S. military involvement in Libya, and ordered the military operation that resulted in the death of Osama bin Laden. In May 2012, he became the first sitting U.S. president to publicly support legalizing same-sex marriage.
+        %hr.section_end_line  
       %div{:id => "sec3"}
-        %h3 Section 3
-        %p
-          Barack Hussein Obama II (i/bəˈrɑːk huːˈseɪn oʊˈbɑːmə/; born August 4, 1961) is the 44th and current President of the United States. He is the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney in Chicago and taught constitutional law at the University of Chicago Law School from 1992 to 2004. He served three terms representing the 13th District in the Illinois Senate from 1997 to 2004, running unsuccessfully for the United States House of Representatives in 2000. Several events earned Obama national attention during his campaign to represent the State of Illinois in the United States Senate in 2004, including his victory in the March 2004 Illinois Democratic primary and his keynote address at the Democratic National Convention in July 2004. He won the Senate election in November 2004. After a close race in the 2008 Democratic Party presidential primaries, he won his party's nomination against Hillary Rodham Clinton. In the 2008 presidential election, he defeated Republican nominee John McCain, and was inaugurated as president on January 20, 2009. Nine months later, Obama was named the 2009 Nobel Peace Prize laureate. In November 2012, he was elected to a second term as president, defeating Republican nominee Mitt Romney.[4] In his first term as president, Obama signed economic stimulus legislation in the form of the American Recovery and Reinvestment Act of 2009 and the Tax Relief, Unemployment Insurance Reauthorization, and Job Creation Act of 2010 in response to the 2007–2009 recession in the United States. Other major domestic policy initiatives include the Patient Protection and Affordable Care Act, the Dodd–Frank Wall Street Reform and Consumer Protection Act, the Don't Ask, Don't Tell Repeal Act of 2010, and the Budget Control Act of 2011. In foreign policy, Obama ended U.S. military involvement in the Iraq War, increased troop levels in Afghanistan, signed the New START arms control treaty with Russia, ordered U.S. military involvement in Libya, and ordered the military operation that resulted in the death of Osama bin Laden. In May 2012, he became the first sitting U.S. president to publicly support legalizing same-sex marriage.
+        %div.section_title
+          %h3 Section 3
+        %div.section_content
+          %p
+            Barack Hussein Obama II (i/bəˈrɑːk huːˈseɪn oʊˈbɑːmə/; born August 4, 1961) is the 44th and current President of the United States. He is the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney in Chicago and taught constitutional law at the University of Chicago Law School from 1992 to 2004. He served three terms representing the 13th District in the Illinois Senate from 1997 to 2004, running unsuccessfully for the United States House of Representatives in 2000. Several events earned Obama national attention during his campaign to represent the State of Illinois in the United States Senate in 2004, including his victory in the March 2004 Illinois Democratic primary and his keynote address at the Democratic National Convention in July 2004. He won the Senate election in November 2004. After a close race in the 2008 Democratic Party presidential primaries, he won his party's nomination against Hillary Rodham Clinton. In the 2008 presidential election, he defeated Republican nominee John McCain, and was inaugurated as president on January 20, 2009. Nine months later, Obama was named the 2009 Nobel Peace Prize laureate. In November 2012, he was elected to a second term as president, defeating Republican nominee Mitt Romney.[4] In his first term as president, Obama signed economic stimulus legislation in the form of the American Recovery and Reinvestment Act of 2009 and the Tax Relief, Unemployment Insurance Reauthorization, and Job Creation Act of 2010 in response to the 2007–2009 recession in the United States. Other major domestic policy initiatives include the Patient Protection and Affordable Care Act, the Dodd–Frank Wall Street Reform and Consumer Protection Act, the Don't Ask, Don't Tell Repeal Act of 2010, and the Budget Control Act of 2011. In foreign policy, Obama ended U.S. military involvement in the Iraq War, increased troop levels in Afghanistan, signed the New START arms control treaty with Russia, ordered U.S. military involvement in Libya, and ordered the military operation that resulted in the death of Osama bin Laden. In May 2012, he became the first sitting U.S. president to publicly support legalizing same-sex marriage.
+        %hr.section_end_line
       %div{:id => "sec4"}
-        %h3 Section 4
-        %p 
-          Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %div.section_title
+          %h3 Section 4
+        %div.section_content
+          %p 
+            Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %hr.section_end_line
       %div{:id => "sec5"}
-        %h3 Section 5
-        %p 
-          Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %div.section_title
+          %h3 Section 5
+        %div.section_content
+          %p 
+            Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %hr.section_end_line
       %div{:id => "sec6"}
-        %h3 Section 6
-        %p 
-          Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %div.section_title
+          %h3 Section 6
+        %div.section_content
+          %p 
+            Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %hr.section_end_line
       %div{:id => "sec7"}
-        %h3 Section 7
-        %p 
-          Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %div.section_title
+          %h3 Section 7
+        %div.section_content
+          %p 
+            Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %hr.section_end_line
       %div{:id => "sec8"}
-        %h3 Section 8
-        %p 
-          Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %div.section_title
+          %h3 Section 8
+        %div.section_content
+          %p 
+            Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %hr.section_end_line
       %div{:id => "sec9"}
-        %h3 Section 9
-        %p 
-          Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
-          
+        %div.section_title
+          %h3 Section 9
+        %div.section_content
+          %p 
+            Testing section 4. The navigation bar as well as the content sections get updated via ajax calls (add or remove menu items). After this scrollspy doesn't highlight the newly added items anymore.
+        %hr.section_end_line          
       %div{:id => "sec10_container"}
-        %h3 Section 10
-        %a{:id => "sec10_edit_link", :href => '#sec10_container', :onclick => "showEdit('sec10')"} Edit
-        %div{:id => 'sec10_normal'}
-        %div.hide{:id => "sec10_edit"}
-          = text_area_tag :sec10_editor, "", :class => "tinymce", :rows => 10,:cols => 200
-          %a{:href => '#sec10_container', :onclick => "saveEdit('sec10')"} save
-          %a{:href => '#sec10_container', :onclick => "cancelEdit('sec10')"} cancel
+        %div.section_title
+          %h3 Section 10
+        %div.section_content
+          %div{:id => 'sec10_normal'}
+          %div.hide{:id => "sec10_edit"}
+            = text_area_tag :sec10_editor, "", :class => "tinymce", :rows => 10,:cols => 200
+            %br
+            %a.btn.btn-primary.section_edit_save{:href => '#sec10_container', :onclick => "saveEdit('sec10')"} Save changes
+            %a.btn.btn-danger.section_edit_cancel{:href => '#sec10_container', :onclick => "cancelEdit('sec10')"} Cancel changes
+        %div.append_content{:id => "sec10_append_div"}
+          %br
+          %a.btn.btn-primary.section_edit_button.pull-right{:id => "sec10_edit_link", :href => '#sec10_container', :onclick => "showEdit('sec10')"} Edit
           
 /
 / default initialization of tinymce ditor control. You need this init only once on a page
@@ -132,7 +158,7 @@
       if ($window.scrollTop() > pos) {
         $this.css({
           position: 'fixed',
-          top: 0
+          top: 10
         });
       } else {
         $this.css({
@@ -174,5 +200,4 @@
     
     edit_div.addClass('hide');
     tinyMCE.get(id + '_editor').setContent(""); 
-  }                     
-
+  }   

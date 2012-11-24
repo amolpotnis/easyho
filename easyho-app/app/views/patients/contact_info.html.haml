@@ -1,7 +1,8 @@
 = render :partial => "patients/patient_basic_info",:locals => {:curselect => "contacts"}
 
 %div.row.well{:id => "personalcontact"}
-  %h3.center Personal contact information
+  %h3 Personal contact information
+  %br
   %div.span8    
     %p
       %strong Address:
@@ -19,12 +20,15 @@
       amolpotnis@gmail.com
 
 %div.row.well{:id => "officecontact"}
-  %h3.center Office contact information
-  %div.span8    
-    %p
-      %strong Address:
+  %h3 Office contact information
+  %br
+  %div.span8
+    %address    
+      %strong GS Lab
       %br
-      GS Lab.
+      BAner road, Amar arma Genesis,
+      %br
+      Pune, 411007.
   %div.span3
     %p
       %strong Phone:

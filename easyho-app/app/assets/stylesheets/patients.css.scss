@@ -10,9 +10,19 @@
   //position: fixed;
   position: absolute;
   width: 180px;
+  
+  ul > li > a {
+    border-width: 1px;
+    border-style:solid;
+    
+    i {
+      color: #fff;
+    }
+  }
 }
 // ------------------------
 
+// Top small bar with patinet name and OPD number
 .basicinfo {
   padding-top: 10px;
   padding-bottom: 0px;
@@ -27,4 +37,38 @@
     padding-top: 5px;
     margin-top: 5px;
   }
+}
+//---------------------------------
+
+.section_title {
+  height: 25px;
+  //background-color: #08c;
+  background-color: #eee;
+  padding-top: 5px;
+  padding-left: 3px;
+  //h3 {
+  //  color: #fff;
+  //}
+}
+
+.section_content {
+  padding-left: 20px;
+}
+.section_end_line {
+  background-color: #000;
+  height: 2px;
+}
+.section_edit_button {
+  height: 13px;
+  padding-top: 0px;
+}
+
+.section_edit_save {
+  height: 13px;
+  padding-top: 0px;
+}
+
+.section_edit_cancel {
+  height: 13px;
+  padding-top: 0px;
 }
