@@ -1,13 +1,11 @@
 %div.row.signup_page_title1.span11
-  %h1 For homeopathy doctors
-/%br
-%br  
-%div.row.signup_page_title2.span11
-  %h2 Create a new account for yourself.
+  %h1 New account for a homeopathy doctor
   
 %div.row
-  %div.span6
+  %div.span8
     = form_for(@mainuser) do |f|
+      /= f.error_messages
+      
       = f.label :firstname
       = f.text_field :firstname
       
@@ -28,9 +26,8 @@
       %br
       %div.span2
         = f.submit "Create my account", class: "btn btn-large btn-primary"
-      %div.span3
+      %div.span4
         %br
-        %strong &nbsp;&nbsp;Existing user? 
-        %strong Please 
-        %a{:href => '#'} sign in
+        %strong &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing user?  
+        = link_to "Sign in with your account!", signin_path
     

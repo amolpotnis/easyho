@@ -1,4 +1,3 @@
-/%header.navbar.navbar-fixed-top
 %header.navbar
   %div.navbar-inner
     /= link_to "sample app", '#', id: "logo"
@@ -12,7 +11,7 @@
           /  = link_to "Help",    '#'
           -if !@signup.nil? && @signup == true
             %li
-              = link_to "Sign in", '#'
+              = link_to "Sign in", signin_path
           -if !@signin.nil? && @signin == true
             %li
-              = link_to "Create new account", '#'
+              = link_to "Create new account", signup_path

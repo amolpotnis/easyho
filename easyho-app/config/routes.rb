@@ -1,6 +1,5 @@
 EasyhoApp::Application.routes.draw do
 
-  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -58,6 +57,10 @@ EasyhoApp::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   
+  
+  root :to => 'sessions#new'
+  
+  
   match 'sample' => 'patients#sample'
   match 'patientcontact' => 'patients#contact'
   match 'followups' => 'patients#followups'
@@ -67,6 +70,10 @@ EasyhoApp::Application.routes.draw do
   
   # Main user -> signup
   match '/signup' => 'main_users#new'
+  
+  resources :sessions, only: [ :new, :create, :destroy ]
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
   
   
 end
