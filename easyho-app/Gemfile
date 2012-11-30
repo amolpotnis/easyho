@@ -23,8 +23,7 @@ end
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -39,13 +38,22 @@ gem 'jquery-rails'
 gem 'debugger'
 
 #Added by Amol
+# ---------------------------------
 gem 'haml'
 gem 'mysql2', '0.3.11'
 gem 'bootstrap-sass', '2.0.0'
 gem 'nokogiri'
 
+# To use WYSIWYG javascript editor
+gem 'tinymce-rails'
+
+# To use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.1'
+
+#
+# To use thin server in dev/test mode
+#
 group :test, :development do
   gem 'thin'
 end
 
-gem 'tinymce-rails'

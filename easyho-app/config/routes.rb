@@ -1,5 +1,6 @@
 EasyhoApp::Application.routes.draw do
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -60,4 +61,12 @@ EasyhoApp::Application.routes.draw do
   match 'sample' => 'patients#sample'
   match 'patientcontact' => 'patients#contact'
   match 'followups' => 'patients#followups'
+  
+  #Exposing main_users as users for convenience
+  resources :main_users, :path => :users
+  
+  # Main user -> signup
+  match '/signup' => 'main_users#new'
+  
+  
 end

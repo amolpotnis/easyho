@@ -1,0 +1,36 @@
+%div.row.signup_page_title1.span11
+  %h1 For homeopathy doctors
+/%br
+%br  
+%div.row.signup_page_title2.span11
+  %h2 Create a new account for yourself.
+  
+%div.row
+  %div.span6
+    = form_for(@mainuser) do |f|
+      = f.label :firstname
+      = f.text_field :firstname
+      
+      = f.label :lastname
+      = f.text_field :lastname 
+      
+      = f.label :email
+      = f.text_field :email
+      
+      = f.label :mobile
+      = f.text_field :mobile
+
+      = f.label :password
+      = f.password_field :password 
+      
+      = f.label :password_confirmation, "Password confirmation"
+      = f.password_field :password_confirmation
+      %br
+      %div.span2
+        = f.submit "Create my account", class: "btn btn-large btn-primary"
+      %div.span3
+        %br
+        %strong &nbsp;&nbsp;Existing user? 
+        %strong Please 
+        %a{:href => '#'} sign in
+    
