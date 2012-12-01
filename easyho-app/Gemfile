@@ -44,6 +44,9 @@ gem 'mysql2', '0.3.11'
 gem 'bootstrap-sass', '2.0.0'
 gem 'nokogiri'
 
+# for nice form error displays
+gem 'dynamic_form'
+
 # To use WYSIWYG javascript editor
 gem 'tinymce-rails'
 

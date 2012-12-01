@@ -4,7 +4,7 @@
 %div.row
   %div.span8
     = form_for(@mainuser) do |f|
-      /= f.error_messages
+      = f.error_messages
       
       = f.label :firstname
       = f.text_field :firstname

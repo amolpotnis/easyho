@@ -18,4 +18,9 @@ class MainUser < ActiveRecord::Base
   validates :password_confirmation, presence: true
   # -------------
   
+  # For SEO friendly URLs
+  def to_param
+    "#{id}-#{firstname.parameterize}-#{lastname.parameterize}"
+  end
+  
 end

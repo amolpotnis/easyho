@@ -70,6 +70,7 @@ EasyhoApp::Application.routes.draw do
   
   # Main user -> signup
   match '/signup' => 'main_users#new'
+  match '/signupsuccess' => 'main_users#signupsuccess'
   
   resources :sessions, only: [ :new, :create, :destroy ]
   match '/signin',  to: 'sessions#new'
