@@ -118,17 +118,23 @@ footer ul li {
 //
 div.navbar-inner {
   background-color: $gray;
-  //background-image: none;
-  //background-repeat: no-repeat;
-  //filter: none;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
   
 }
 .navbar .nav > li {
-   a {
+  a {
     color: #fff;
   }
   a:hover {
     font-weight: bold;
+  }
+}
+
+.header_dropdownmenu_element {
+  a {
+    color: #000 !important;
   }
 }
 //------------ Header modification end -------------

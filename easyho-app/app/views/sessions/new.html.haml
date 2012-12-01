@@ -3,8 +3,9 @@
 %div.row
   %div.span6.offset3
     = form_for(:session, url: sessions_path) do |f|
-      /= f.error_messages
       
+      = f.error_messages
+            
       = f.hidden_field :service, :value => "defaultauth"
       
 

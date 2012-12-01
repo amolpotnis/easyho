@@ -5,13 +5,20 @@
       = link_to "sample app", '#', id: "logo"
       %nav
         %ul.nav.pull-right
-          /%li
-          /  = link_to "Home",    '#'
-          /%li
-          /  = link_to "Help",    '#'
-          -if !@signup.nil? && @signup == true
-            %li
-              = link_to "Sign in", signin_path
-          -if !@signin.nil? && @signin == true
-            %li
-              = link_to "Create new account", signup_path
+          -if !signed_in?
+            -if !@signup.nil? && @signup == true
+              %li
+                = link_to "Sign in", signin_path
+            -if !@signinflag.nil? && @signinflag == true
+              %li
+                = link_to "Create new account", signup_path
+          -else
+            %li{:id => "fat-menu", :class => "dropdown"}
+              %a{:href => "#", :class => "dropdown-toggle", "data-toggle" => "dropdown"}
+                %i.icon-user.icon-white
+                = truncate(current_user.firstname, :length => 15)
+                %b.caret
+              %ul.dropdown-menu
+                %li.header_dropdownmenu_element
+                  = link_to "Sign out", signout_path, method: "delete"
+                

@@ -5,8 +5,22 @@
     = stylesheet_link_tag 'application', :media => "all"
     = javascript_include_tag 'application'
     = csrf_meta_tags
-%body
+%body{:itemscope => true, :itemtype => "http://schema.org/CreativeWork"}
   = render 'layouts/header'
+  
+  - if flash[:notice]
+    %div.alert.alert-success
+      %i.icon-ok-sign
+      = flash[:notice]
+  - elsif flash[:warning]
+    %div.alert.alert-error
+      %i.icon-exclamation-sign
+      = flash[:warning]
+  - elsif flash[:error]
+    %div.alert.alert-error
+      %i.icon-exclamation-sign
+      = flash[:error]
+      
   %div{:class => "container"}
     = yield
   

@@ -5,6 +5,8 @@ class MainUser < ActiveRecord::Base
     
   #Store email addresses in lowecase
   before_save { |user| user.email = email.downcase }
+  # Create unique token for each user ..will use for persistent sessions
+  before_save :create_remember_token
   
   #Validations before saving  
   validates :firstname, presence: true
@@ -22,5 +24,10 @@ class MainUser < ActiveRecord::Base
   def to_param
     "#{id}-#{firstname.parameterize}-#{lastname.parameterize}"
   end
+  
+  private
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
   
 end

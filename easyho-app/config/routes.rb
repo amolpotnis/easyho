@@ -60,10 +60,11 @@ EasyhoApp::Application.routes.draw do
   
   root :to => 'sessions#new'
   
-  
+  # ////DUMMY trials
   match 'sample' => 'patients#sample'
   match 'patientcontact' => 'patients#contact'
   match 'followups' => 'patients#followups'
+  # //////
   
   #Exposing main_users as users for convenience
   resources :main_users, :path => :users
@@ -75,6 +76,8 @@ EasyhoApp::Application.routes.draw do
   resources :sessions, only: [ :new, :create, :destroy ]
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  
+  match '/myopd', to: 'main_users#myopd'
   
   
 end

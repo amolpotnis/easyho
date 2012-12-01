@@ -1,4 +1,6 @@
 class MainUsersController < ApplicationController
+  
+   
   def new
     @mainuser = MainUser.new
     @signup = true
@@ -21,7 +23,6 @@ class MainUsersController < ApplicationController
     else
       logger.error("MainUser creation failed.")
       logger.error(@mainuser.errors.full_messages)
-      flash[:error] = "Error while creating user for emailid=" + @mainuser.email 
       @signup = true
       render 'new' 
     end
@@ -29,5 +30,8 @@ class MainUsersController < ApplicationController
   
   def signupsuccess
     @signup = true
+  end
+  
+  def myopd
   end
 end
