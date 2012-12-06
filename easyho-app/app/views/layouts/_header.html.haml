@@ -1,8 +1,9 @@
 %header.navbar
-  %div.navbar-inner
+  %div.navbar-inner{ :id => "upperinnerbar"}
     /= link_to "sample app", '#', id: "logo"
     %div.container
-      = link_to "sample app", '#', id: "logo"
+      /= link_to "sample app", '#', id: "logo"
+      = link_to image_tag("logo1.png", alt: "ZenPills", id: 'logo'), '/'
       %nav
         %ul.nav.pull-right
           -if !signed_in?
@@ -21,4 +22,19 @@
               %ul.dropdown-menu
                 %li.header_dropdownmenu_element
                   = link_to "Sign out", signout_path, method: "delete"
-                
+
+  -if signed_in?
+    %div.navbar-inner{ :id => "lowerinnerbar"}
+      %div.well{:id => "lowermenubar"}
+        %div.container
+          %div.nav.pull-right{:id => "lowernavdiv"}                  
+            %ul.nav.pull-right
+              %li
+                %a.btn-large{:href => myopd_path}
+                  = image_tag("myopd.png", :size => "16x16")
+                  My OPD
+              %li
+                %a.btn-large{:href => myopd_path}
+                  = image_tag("add_new_patient.png", :size => "16x16")
+                  Add new patient              
+                            

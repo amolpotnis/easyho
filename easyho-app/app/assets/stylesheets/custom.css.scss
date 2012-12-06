@@ -69,7 +69,8 @@ p {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  //padding-top: 9px;
+  padding-top: 2px;
   font-weight: bold;
   line-height: 1;
 }
@@ -123,14 +124,26 @@ div.navbar-inner {
   filter: none;
   
 }
-.navbar .nav > li {
+/* .navbar .nav > li {
   a {
     color: #fff;
   }
   a:hover {
     font-weight: bold;
   }
+} */
+
+div#upperinnerbar {
+  //.navbar .nav > li {
+    a {
+      color: #fff;
+    }
+    a:hover {
+      font-weight: bold;
+    }
+  //}
 }
+
 
 .header_dropdownmenu_element {
   a {
@@ -159,4 +172,41 @@ div.navbar-inner {
   @extend .error;  
 }
 // --------------- Done form error messages ------------------------------------
+
+/* ========== To adjust lower menubar : height color and other styling  START ================ */
+div#lowerinnerbar {
+  padding: 0px;
+}
+div#lowermenubar.well {
+  min-height: 3px;
+  padding: 0px;
+  margin-bottom: 0px; 
+  background-color: #fff;
+  
+  // Adjusted link colors to make them abit more visibile on current background.
+  a {
+    //color: #BABABA;
+    color: #000;
+  }
+  a:hover {
+    //color: #fff;
+    color: #0033CC;
+  } 
+  //
+}
+
+div#lowernavdiv {
+   height: 26px;
+   a {
+    padding-top: 4px;
+   }
+   
+}
+
+#lowermenubar_divider {
+  height: 24px;
+  background-color: #949494;
+}
+/* ========== To adjust lower menubar : height color and other styling  END ================ */
+
 
