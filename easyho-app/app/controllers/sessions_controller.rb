@@ -8,7 +8,16 @@ class SessionsController < ApplicationController
     user = MainUser.find_by_email(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       # Sign the user in and redirect to root.
-      sign_in(user, false)
+      remember_flag = false
+      remember_flag_val = params[:remember_me]
+      if !remember_flag_val.nil? 
+        logger.debug ("remember_flag_val = " + remember_flag_val.to_s)
+      end
+      if !remember_flag_val.nil? && remember_flag_val == "1"
+        remember_flag = true 
+      end
+      
+      sign_in(user, remember_flag)
       redirect_to myopd_path
       return
     else

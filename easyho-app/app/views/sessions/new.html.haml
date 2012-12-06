@@ -14,7 +14,11 @@
 
       = f.label :password
       = f.password_field :password
-
+      %br
+      =check_box_tag(:remember_me, )
+      =label_tag(:remember_me_label, "Remember me on this computer", :class => "checkbox inline")
+      %br
+      %br
       = f.submit "Sign in", class: "btn btn-large btn-primary"
       
     %p 

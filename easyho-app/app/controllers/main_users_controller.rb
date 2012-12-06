@@ -1,5 +1,5 @@
 class MainUsersController < ApplicationController
-  
+  before_filter :signing_is_must, only: [:myopd]
    
   def new
     @mainuser = MainUser.new

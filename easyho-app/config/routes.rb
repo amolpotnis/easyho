@@ -58,7 +58,7 @@ EasyhoApp::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   
   
-  root :to => 'sessions#new'
+  root :to => 'main_users#myopd'
   
   # ////DUMMY trials
   match 'sample' => 'patients#sample'
