@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
   def new
-    @signinflag = true
+    if signed_in?
+      redirect_to myopd_path
+    else
+      @signinflag = true
+    end
   end
   
   def create
