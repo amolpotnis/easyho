@@ -53,6 +53,10 @@ gem 'tinymce-rails'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.1'
 
+# for jqueryUI integration   
+# from https://github.com/joliss/jquery-ui-rails
+gem 'jquery-ui-rails'
+
 #
 # To use thin server in dev/test mode
 #

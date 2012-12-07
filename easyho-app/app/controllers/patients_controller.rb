@@ -6,4 +6,12 @@ class PatientsController < ApplicationController
   def contact
     render :template => "patients/contact_info", :formats => [:html], :handlers => :haml
   end
+  
+  def new
+    @newpatient = Patient.new
+  end
+  
+  def create
+    
+  end
 end

@@ -1,0 +1,44 @@
+%h1 Add a new patient
+
+%div.row
+  %div.span10.offset1
+    = form_for(@newpatient) do |f|
+      = f.error_messages
+      %div.span10
+        %div.span3
+          = f.label("First name *")
+          = f.text_field :firstname
+        %div.span3
+          = f.label("Middle name")
+          = f.text_field :middlename
+        %div.span3
+          = f.label("Last name *")
+          = f.text_field :lastname 
+      %div.span10
+        %div.span3
+          = f.label("Date of birth")
+          %input{:type => "text", :id => "patient_dob", :name => "patient[dob]"}
+        %div.span3
+          = f.label("Mobile number")
+          = f.text_field :mobile
+        %div.span3
+          = f.label("Personal email")
+          = f.text_field :email
+      %div.span10 
+        %div.span6
+          = f.label("Residence address")
+          = f.text_area :homeaddress, :rows => 4
+        %div.span3
+          = f.label("Residence phone")
+          = f.text_field :homephone
+      
+      %br
+      %div.form-actions.span10.center
+        %button{:type => "submit", :class => "btn btn-large btn-primary"} Save this entry
+        %a{:class => "btn btn-large", :href => myopd_path} Cancel 
+
+:javascript
+  $(function() {
+    $('#patient_dob').datepicker();
+  });        
+      
