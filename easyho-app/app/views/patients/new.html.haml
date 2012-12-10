@@ -4,6 +4,12 @@
   %div.span10.offset1
     = form_for(@newpatient) do |f|
       = f.error_messages
+      
+      /
+      / idden filed used to pass DOB in rails friendly format. See the javacript code used below.
+      /
+      = f.hidden_field :dob
+      
       %div.span10
         %div.span3
           = f.label("First name *")
@@ -17,7 +23,11 @@
       %div.span10
         %div.span3
           = f.label("Date of birth")
-          %input{:type => "text", :id => "patient_dob", :name => "patient[dob]"}
+          /
+          / USed dummy field for diaply, one more hidden field is used for actual date posting in yy-mm-dd format.
+          / See the javascript code used below.
+          /
+          %input{:type => "text", :id => "patient1_dob", :name => "patient1_dob"}
         %div.span3
           = f.label("Mobile number")
           = f.text_field :mobile
@@ -39,6 +49,10 @@
 
 :javascript
   $(function() {
-    $('#patient_dob').datepicker();
+    //
+    // http://stackoverflow.com/questions/7181220/rails-3-jquery-date-picker-date-not-saving-to-database
+    // Using answer number 10 from the post
+    //
+    $('#patient1_dob').datepicker({altField: '#patient_dob', altFormat: 'yy-mm-dd'});
   });        
       

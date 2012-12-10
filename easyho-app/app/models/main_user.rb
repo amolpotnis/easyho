@@ -25,6 +25,24 @@ class MainUser < ActiveRecord::Base
     "#{id}-#{firstname.parameterize}-#{lastname.parameterize}"
   end
   
+  def isAdmin
+    return self.isadmin ? true: false 
+  end
+  
+  def isDoctor
+    return self.isadmin ? false: true
+  end
+  
+  def isAssistant
+    return false
+  end
+  
+  def isReceptionist
+    return false
+  end
+  
+  
+  
   private
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
