@@ -1,8 +1,8 @@
 %div.row.basicinfo.well
   %div.span7
-    %h3 Amol Potnis
+    %h3 #{@patient_entry.firstname} #{@patient_entry.lastname}
   %div.span4.pull-right
-    %h3 OPD Number: VGK-1124
+    %h3 OPD Number: #{@patient_entry.opd_number}
   %div.span10{:id => "patient_menus"}
     %ul.nav.nav-pills{:id => "tmp"}
       -if curselect == "contacts"

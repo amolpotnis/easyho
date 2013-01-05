@@ -1,4 +1,4 @@
-/= render :partial => "patients/patient_basic_info",:locals => {:curselect => "contacts"}
+= render :partial => "patients/patient_basic_info",:locals => {:curselect => "contacts"}
 
 %div.row.well{:id => "personalcontact"}
   %h3 Personal contact information
@@ -7,17 +7,18 @@
     %p
       %strong Address:
       %br
-      Flat 11, Building B1, Harmonoy Scoiety, Aundh, Pune, 411007.
+      -if !@patient_entry.homeaddress.nil?
+        = simple_format(h @patient_entry.homeaddress)
   %div.span3
     %p
       %strong Mobile: 
-      +91 9850814851
+      #{@patient_entry.mobile}
     %p
       %strong Home: 
-      020-2588063
+      #{@patient_entry.homephone}
     %p
       %strong Email: 
-      amolpotnis@gmail.com
+      #{@patient_entry.email}
 
 %div.row.well{:id => "officecontact"}
   %h3 Office contact information
@@ -36,5 +37,5 @@
       %strong Extension: 
     %p
       %strong Email: 
-      amolpotnis@kpoint.com
+      amolpotnisWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTesting@kpoint.com
      

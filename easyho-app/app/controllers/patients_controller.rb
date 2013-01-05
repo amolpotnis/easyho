@@ -13,6 +13,11 @@ class PatientsController < ApplicationController
     @newpatient = Patient.new
   end
   
+  def show
+    id = params[:id]
+    @patient_entry = Patient.find(id) 
+  end
+  
   def create
     @newpatient = Patient.new(params[:patient])
     if current_user.isDoctor
