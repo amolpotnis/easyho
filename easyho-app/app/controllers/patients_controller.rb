@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_filter :signing_is_must, only: [:new, :create]
+  before_filter :signing_is_must, only: [:new, :create, :list, :show]
     
   def sample
     render :template => "patients/sample", :formats => [:html], :handlers => :haml, :layout => "patientprofile"
@@ -16,6 +16,11 @@ class PatientsController < ApplicationController
   def show
     id = params[:id]
     @patient_entry = Patient.find(id) 
+  end
+  
+  def list
+    #A doctor should be able to see only his patients.
+    @patient_list = Patient.where("doctor_id = ?", current_user.id).order("opd_number DESC").page(params[:page]).per(50)
   end
   
   def create

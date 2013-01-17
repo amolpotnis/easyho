@@ -80,6 +80,7 @@ EasyhoApp::Application.routes.draw do
   match '/myopd', to: 'main_users#myopd'
   
   resources :patients
+  match '/patientlist', to: 'patients#list'
   
   
 end

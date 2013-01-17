@@ -1,0 +1,26 @@
+= paginate(@patient_list)
+= page_entries_info(@patient_list).html_safe
+
+%br
+%br
+%div
+  %h3 Your patient list
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th Opd Number
+        %th Patient's name
+        %th Date of first visit
+        
+    %tbody
+      - @patient_list.each do |each_patient|
+        %tr
+          %td
+            #{each_patient.opd_number}
+          %td
+            %a{:href => patient_path(each_patient)}#{each_patient.firstname} #{each_patient.lastname}
+          %td
+
+  
+= page_entries_info(@patient_list).html_safe
+= paginate(@patient_list)
