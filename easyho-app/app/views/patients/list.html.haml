@@ -1,10 +1,20 @@
-= paginate(@patient_list)
+%div.row
+  %div.span3.offset3
+    %h3 Your patient list
+  %div.span4
+    = form_tag(patientlist_path, :action => "get") do
+      = text_field_tag :patientsearch, params[:patientsearch]
+      = button_tag(:type => "submit", :class => "btn btn-primary") do
+        %i.icon-search.icon-white
+        /= p " Search"
+
+/= paginate(@patient_list)
 = page_entries_info(@patient_list).html_safe
 
+              
 %br
 %br
 %div
-  %h3 Your patient list
   %table.table.table-bordered.table-striped
     %thead
       %tr

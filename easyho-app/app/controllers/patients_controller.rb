@@ -19,10 +19,21 @@ class PatientsController < ApplicationController
   end
   
   def list
+    entries_per_page = 50
     #A doctor should be able to see only his patients.
-    @patient_list = Patient.where("doctor_id = ?", current_user.id).order("opd_number DESC").page(params[:page]).per(50)
+    searchstr = params[:patientsearch]
+    if(searchstr.nil? or searchstr.blank?)
+      #normal listing  
+      @patient_list = Patient.where("doctor_id = ?", current_user.id).order("opd_number DESC").page(params[:page]).per(entries_per_page)
+    else    
+      #search
+      @patient_list = Patient.where("doctor_id = ? and ( opd_number like ? or firstname like ? or lastname like ?)", current_user.id, "%#{searchstr}%","%#{searchstr}%","%#{searchstr}%").order("opd_number DESC").page(params[:page]).per(entries_per_page)
+    end
   end
   
+  def search
+    logger.debug("search test")
+  end
   def create
     @newpatient = Patient.new(params[:patient])
     if current_user.isDoctor

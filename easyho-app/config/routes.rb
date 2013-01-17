@@ -81,6 +81,7 @@ EasyhoApp::Application.routes.draw do
   
   resources :patients
   match '/patientlist', to: 'patients#list'
+  #match '/patientsearch', to: 'patients#search'
   
   
 end
