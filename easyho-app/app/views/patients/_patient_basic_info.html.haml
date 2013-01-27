@@ -7,13 +7,14 @@
     %ul.nav.nav-pills{:id => "tmp"}
       -if curselect == "contacts"
         %li.active
-          %a{:href => patientcontact_path} Contact information
+          /%a{:href => patientcontact_path} Contact information
+          %a{:href => contact_patient_path} Contact information
       -else
         %li
           %a{:href => patientcontact_path} Contact information
       -if curselect == "history"
         %li.active
-          %a{:href => sample_path} Case history
+          %a{:href => casehistory_patient_path(@patient_entry)} Case history
       -else
         %li
           %a{:href => sample_path} Case history

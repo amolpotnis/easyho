@@ -1,21 +1,43 @@
 class PatientsController < ApplicationController
-  before_filter :signing_is_must, only: [:new, :create, :list, :show]
+  before_filter :signing_is_must, only: [:new, :create, :list, :show, :contact, :editcontact]
+  before_filter :owner_doctor_allowed, only: [:contact, :editcontact]
     
   def sample
     render :template => "patients/sample", :formats => [:html], :handlers => :haml, :layout => "patientprofile"
   end
   
   def contact
+    id = params[:id]
+    @patient_entry = Patient.find(id)
+    
     render :template => "patients/contact_info", :formats => [:html], :handlers => :haml
   end
   
+  def editcontact
+    id = params[:id]
+    @patient_entry = Patient.find(id)
+    render :template => "patients/edit_contact_info", :formats => [:html], :handlers => :haml
+  end
+  
+  def update
+    id = params[:id]
+    @patient_entry = Patient.find(id)
+    
+    if @patient_entry.update_attributes(params[:patient])
+      flash[:notice] = "Successfully updated.".html_safe
+      redirect_to contact_patient_path(@patient_entry)
+    else
+      #error TBD
+    end
+  end
   def new
     @newpatient = Patient.new
   end
   
   def show
     id = params[:id]
-    @patient_entry = Patient.find(id) 
+    @patient_entry = Patient.find(id)
+     
   end
   
   def list
@@ -29,6 +51,7 @@ class PatientsController < ApplicationController
       #search
       @patient_list = Patient.where("doctor_id = ? and ( opd_number like ? or firstname like ? or lastname like ?)", current_user.id, "%#{searchstr}%","%#{searchstr}%","%#{searchstr}%").order("opd_number DESC").page(params[:page]).per(entries_per_page)
     end
+    
   end
   
   def search
@@ -63,3 +86,15 @@ class PatientsController < ApplicationController
     end
   end
 end
+
+private
+  def owner_doctor_allowed
+    id = params[:id]
+    @patient_entry = Patient.find(id)
+    if !current_user.nil? && current_user.isDoctor && current_user.id == @patient_entry.doctor_id
+      # Great, everything is fine
+    else
+      flash[:notice] = 'You are not authorized to perform this operation.'
+      redirect_to myopd_path
+    end
+  end

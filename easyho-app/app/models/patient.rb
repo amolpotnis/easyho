@@ -1,5 +1,5 @@
 class Patient < ActiveRecord::Base
-  attr_accessible :firstname, :lastname, :middlename, :email, :mobile, :homeaddress, :homephone, :dob
+  attr_accessible :firstname, :lastname, :middlename, :email, :mobile, :homeaddress, :homephone, :dob, :jobphone, :jobemail, :jobaddress, :jobdescription
   
   #Validations before saving  
   validates :firstname, presence: true

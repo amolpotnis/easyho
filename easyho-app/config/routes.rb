@@ -62,7 +62,7 @@ EasyhoApp::Application.routes.draw do
   
   # ////DUMMY trials
   match 'sample' => 'patients#sample'
-  match 'patientcontact' => 'patients#contact'
+  #match 'patientcontact' => 'patients#contact'
   match 'followups' => 'patients#followups'
   # //////
   
@@ -79,7 +79,13 @@ EasyhoApp::Application.routes.draw do
   
   match '/myopd', to: 'main_users#myopd'
   
-  resources :patients
+  resources :patients do
+    member do
+      get 'contact'
+      get 'editcontact'
+      get 'casehistory'
+    end
+  end
   match '/patientlist', to: 'patients#list'
   #match '/patientsearch', to: 'patients#search'
   

@@ -1,0 +1,83 @@
+%div.row.well
+  %div.span7
+    %h3 #{@patient_entry.firstname} #{@patient_entry.lastname}
+  %div.span4.pull-right
+    %h3 OPD Number: #{@patient_entry.opd_number}
+
+
+%div.row
+  %div.span10.offset1
+    = form_for(@patient_entry) do |f|
+      = f.error_messages
+      %h3 Personal information
+      %br
+      
+      /
+      / Hidden filed used to pass DOB in rails friendly format. See the javacript code used below.
+      /
+      = f.hidden_field :dob
+      
+      %div.span10
+        %div.span3
+          = f.label("First name *")
+          = f.text_field :firstname
+        %div.span3
+          = f.label("Middle name")
+          = f.text_field :middlename
+        %div.span3
+          = f.label("Last name *")
+          = f.text_field :lastname 
+      %div.span10
+        %div.span3
+          = f.label("Date of birth")
+          /
+          / USed dummy field for diaply, one more hidden field is used for actual date posting in yy-mm-dd format.
+          / See the javascript code used below.
+          /
+          %input{:type => "text", :id => "patient1_dob", :name => "patient1_dob"}
+        %div.span3
+          = f.label("Mobile number")
+          = f.text_field :mobile
+        %div.span3
+          = f.label("Residence phone")
+          = f.text_field :homephone
+      %div.span10
+        %div.span6
+          = f.label("Personal email")
+          = f.text_field :email
+      %div.span10 
+        %div.span6
+          = f.label("Residence address")
+          = f.text_area :homeaddress, :rows => 4
+      %br
+      %br 
+      %h3 Office information
+      %br 
+      %div.span10
+        %div.span3
+          = f.label("Office Phone")
+          = f.text_field :jobphone
+        %div.span6
+          = f.label("Office email")
+          = f.text_field :jobemail
+      %div.span10 
+        %div.span6
+          = f.label("Office address")
+          = f.text_area :jobaddress, :rows => 4
+        %div.span6
+          = f.label("Job description")
+          = f.text_area :jobdescription, :rows => 4
+      
+      %br
+      %div.form-actions.span10.center
+        %button{:type => "submit", :class => "btn btn-large btn-primary"} Save this entry
+        %a{:class => "btn btn-large", :href => contact_patient_path(@patient_entry)} Cancel 
+  
+:javascript
+  $(function() {
+    //
+    // http://stackoverflow.com/questions/7181220/rails-3-jquery-date-picker-date-not-saving-to-database
+    // Using answer number 10 from the post
+    //
+    $('#patient1_dob').datepicker({altField: '#patient_dob', altFormat: 'yy-mm-dd'});
+  });          
