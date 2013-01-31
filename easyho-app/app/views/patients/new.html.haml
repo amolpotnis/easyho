@@ -6,7 +6,7 @@
       = f.error_messages
       
       /
-      / idden filed used to pass DOB in rails friendly format. See the javacript code used below.
+      / Hidden field used to pass DOB in rails friendly format. See the javacript code used below.
       /
       = f.hidden_field :dob
       
@@ -22,7 +22,7 @@
           = f.text_field :lastname 
       %div.span10
         %div.span3
-          = f.label("Date of birth")
+          = f.label("Date of birth (mm/dd/yyyy)")
           /
           / USed dummy field for diaply, one more hidden field is used for actual date posting in yy-mm-dd format.
           / See the javascript code used below.
@@ -54,5 +54,6 @@
     // Using answer number 10 from the post
     //
     $('#patient1_dob').datepicker({altField: '#patient_dob', altFormat: 'yy-mm-dd'});
+    
   });        
       

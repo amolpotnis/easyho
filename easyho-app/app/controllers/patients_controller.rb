@@ -9,7 +9,13 @@ class PatientsController < ApplicationController
   def contact
     id = params[:id]
     @patient_entry = Patient.find(id)
-    
+    @age_in_words = ""
+    if(!@patient_entry.dob.nil?)
+      age = age_in_completed_years(@patient_entry.dob, Date.today)
+      if(age > 0)
+        @age_in_words = "(Current age: " + age.to_s + " years)"
+      end
+    end
     render :template => "patients/contact_info", :formats => [:html], :handlers => :haml
   end
   
@@ -21,6 +27,10 @@ class PatientsController < ApplicationController
   
   def update
     id = params[:id]
+    dob_display = params[:patient1_dob]
+    if !dob_display.nil? && dob_display.empty?
+      params[:patient][:dob] = "" 
+    end
     @patient_entry = Patient.find(id)
     
     if @patient_entry.update_attributes(params[:patient])
@@ -97,4 +107,14 @@ private
       flash[:notice] = 'You are not authorized to perform this operation.'
       redirect_to myopd_path
     end
+  end
+  
+  def age_in_completed_years (bd, d)
+      # Difference in years, less one if you have not had a birthday this year.
+      a = d.year - bd.year
+      a = a - 1 if (
+           bd.month >  d.month or 
+          (bd.month >= d.month and bd.day > d.day)
+      )
+      a
   end

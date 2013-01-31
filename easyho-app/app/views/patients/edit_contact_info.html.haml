@@ -29,7 +29,7 @@
           = f.text_field :lastname 
       %div.span10
         %div.span3
-          = f.label("Date of birth")
+          = f.label("Date of birth (mm/dd/yyyy)")
           /
           / USed dummy field for diaply, one more hidden field is used for actual date posting in yy-mm-dd format.
           / See the javascript code used below.
@@ -64,6 +64,7 @@
         %div.span6
           = f.label("Office address")
           = f.text_area :jobaddress, :rows => 4
+      %div.span10    
         %div.span6
           = f.label("Job description")
           = f.text_area :jobdescription, :rows => 4
@@ -80,4 +81,10 @@
     // Using answer number 10 from the post
     //
     $('#patient1_dob').datepicker({altField: '#patient_dob', altFormat: 'yy-mm-dd'});
+    
+    //Set the date as per current record 
+    if($("#patient_dob").val() != "")
+    {
+      $('#patient1_dob').datepicker("setDate", new Date($("#patient_dob").val()));
+    }
   });          

@@ -11,11 +11,18 @@
         = simple_format(h @patient_entry.homeaddress)
   %div.span3
     %p
+      %strong DOB
+      (mm/dd/yyyy): 
+      #{@patient_entry.dob.strftime("%m/%d/%Y")}
+      -if @age_in_words != ""
+        #{@age_in_words}
+    %p
       %strong Mobile: 
       #{@patient_entry.mobile}
     %p
       %strong Home: 
       #{@patient_entry.homephone}
+  %div.span10    
     %p
       %strong Email: 
       #{@patient_entry.email}
@@ -23,21 +30,25 @@
 %div.row.well{:id => "officecontact"}
   %h3 Office information
   %br
-  %div.span8
-    %address    
-      %strong GS Lab
+  %div.span11    
+    %p
+      %strong Job description:
       %br
-      BAner road, Amar arma Genesis,
+      -if !@patient_entry.jobdescription.nil?
+        = simple_format(h @patient_entry.jobdescription)
+  %div.span8    
+    %p
+      %strong Address:
       %br
-      Pune, 411007.
+      -if !@patient_entry.jobaddress.nil?
+        = simple_format(h @patient_entry.jobaddress)
   %div.span3
     %p
       %strong Phone:
-    %p 
-      %strong Extension: 
+      #{@patient_entry.jobphone}
     %p
       %strong Email: 
-      amolpotnisWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTestingWTesting@kpoint.com
+      #{@patient_entry.jobemail}
 
 %div.center
   %a{:class => "btn btn-large btn-primary", :href => editcontact_patient_path(@patient_entry)} Edit information
