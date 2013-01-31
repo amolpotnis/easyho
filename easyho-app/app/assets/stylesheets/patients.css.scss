@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//-----------related to scroll apy behvaior -----------------------
+
+//-----------related to scroll spy behavior -----------------------
 #to-Scroll {
   margin-left: 220px;
 }
@@ -73,6 +74,13 @@
   padding-top: 0px;
 }
 //==================================================
-#patient_homeaddress {
+
+//Width of bigger textboxes on contact page
+#patient_homeaddress, #patient_jobaddress, #patient_jobdescription{
   width: 450px;
+}
+
+.contact_info_h3 {
+  background-color: #F5F5F5; //rgb(245,245,245);  //#1987D1; //#007ACC;
+  height: 22px;
 }
