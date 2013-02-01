@@ -108,16 +108,29 @@ def casehistory
   end
   
   #Display sections and order
-  @test = Pch_section_util.new
+  @sec_display_info = pch_sections_list()
     
   #Actual data
   
-  render :template => "patients/casehistory", :formats => [:html], :handlers => :haml
+  render :template => "patients/casehistory", :formats => [:html], :handlers => :haml, :layout => "patientprofile"
 end
 
 # ==========================================================================================
 # ==========================================================================================
 private
+  def pch_sections_list()
+    list_to_return = []
+    pch_sections = PchSection.order("displayorder ASC")
+    pch_sections.each do |sec_entry|
+      tmp_obj = Pch_section_util.new
+      tmp_obj.setSectionId(sec_entry.id)
+      tmp_obj.setDisplayName(sec_entry.displayname)
+      tmp_obj.setDisplayOrder(sec_entry.displayorder)
+      list_to_return.push(tmp_obj)
+    end
+    return list_to_return
+  end
+  
   def owner_doctor_allowed
     id = params[:id]
     @patient_entry = Patient.find(id)

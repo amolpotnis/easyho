@@ -1,5 +1,89 @@
 = render :partial => "patients/patient_basic_info",:locals => {:curselect => "history"}
 
-%h1 #{@test.getDisplayOrder}
-%h1 #{@test.getSectionId}
-%h1 #{@test.getDisplayName}
+%div.container
+  %div.row
+    /
+    / Side bar
+    /
+    -if !@sec_display_info.nil?
+      %div.span3.profilesubsections
+        %ul.nav.nav-list
+          - @sec_display_info.each do |each_section|
+            %li
+              %a{:href => "#sec#{each_section.getSectionId}"}
+                #{each_section.getDisplayName}
+                /%i.icon-chevron-right
+            /%li
+            /  %a{:href => "#sec2"}
+            /    Section-2
+            /    /%i.icon-chevron-right
+      /
+      / Scrollable target
+      /
+      %div.span9{:id => "to-Scroll"}
+        %h3 This case history is created on 17th December 1975.
+        %br
+        - @sec_display_info.each do |each_section|
+          %div{:id => "sec#{each_section.getSectionId}"}
+            %div.section_title
+              %h3 #{each_section.getDisplayName}
+            %div.section_content
+              %p
+                test
+            %hr.section_end_line    
+        /
+        / Following empty lines are to take care of last empty section so that scrolling will behave properly.
+        /    
+        %br
+        %br
+        %br
+        %br
+        %br
+        %br
+        %br
+        %br  
+        %br
+        %br
+        %br
+        %br
+        %br
+        %br
+        %br
+        %br  
+        %br
+        %br
+        %br
+        %br
+        %br
+        %br
+        %br
+        %br  
+        %br
+        %br
+        
+                        
+
+/
+/ Following javascript was needed to scroll the left-side section-list till top and then get hooked there.
+/          
+:javascript
+  var windw = this;
+  $.fn.followTo = function ( pos ) {
+    var $this = this,
+    $window = $(windw);
+    $window.scroll(function(e){
+      if ($window.scrollTop() > pos) {
+        $this.css({
+          position: 'fixed',
+          top: 10
+        });
+      } else {
+        $this.css({
+          position: 'absolute',
+          top: pos
+        });
+      }
+    });
+  };
+  $('.profilesubsections').followTo(170);  
+  //----------------------------------------
