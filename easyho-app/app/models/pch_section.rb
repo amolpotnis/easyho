@@ -1,3 +1,3 @@
 class PchSection < ActiveRecord::Base
-  attr_accessible :displayname, :sec_id
+  attr_accessible :displayname, :displayorder
 end
