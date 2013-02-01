@@ -1,3 +1,5 @@
+require 'pch_section_util.rb'
+
 class PatientsController < ApplicationController
   before_filter :signing_is_must, only: [:new, :create, :list, :show, :contact, :editcontact]
   before_filter :owner_doctor_allowed, only: [:contact, :editcontact]
@@ -67,6 +69,7 @@ class PatientsController < ApplicationController
   def search
     logger.debug("search test")
   end
+  
   def create
     @newpatient = Patient.new(params[:patient])
     if current_user.isDoctor
@@ -95,8 +98,25 @@ class PatientsController < ApplicationController
       render 'new'
     end
   end
+
+
+def casehistory
+  id = params[:id]
+  @patient_entry = Patient.find(id)
+  if @patient_entry.nil?
+    logger.debug("AMOL : NIL patient")
+  end
+  
+  #Display sections and order
+  @test = Pch_section_util.new
+    
+  #Actual data
+  
+  render :template => "patients/casehistory", :formats => [:html], :handlers => :haml
 end
 
+# ==========================================================================================
+# ==========================================================================================
 private
   def owner_doctor_allowed
     id = params[:id]
@@ -118,3 +138,5 @@ private
       )
       a
   end
+
+end
