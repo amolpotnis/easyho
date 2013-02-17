@@ -21,16 +21,19 @@
       / Scrollable target
       /
       %div.span9{:id => "to-Scroll"}
-        %div.span6
+        %div.span8
           %h3 This case history is created on 17th December 1975.
-        %div.span2.pull-right
-          %a.btn.btn-medium.btn-primary.section_edit_button{:href => editch_patient_path(@patient_entry)} Edit
+        /%div.span2.pull-right
+        /  %a.btn.btn-medium.btn-primary.section_edit_button{:href => editch_patient_path(@patient_entry)} Edit
         %br
         %br
         - @sec_display_info.each do |each_section|
           %div{:id => "sec#{each_section.getSectionId}"}
             %div.section_title
-              %h3 #{each_section.getDisplayName}
+              %div.span6
+                %h3 #{each_section.getDisplayName}
+              %div.span2.pull-right
+                %a{:href => "#{editch_patient_path(@patient_entry)}?sec=#{each_section.getSectionId}"} Edit
             %div.section_content
               -if !@pch_hash[each_section.getSectionId].nil?
                 = @pch_hash[each_section.getSectionId].html_safe
