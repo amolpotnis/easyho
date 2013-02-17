@@ -60,7 +60,7 @@
   height: 2px;
 }
 .section_edit_button {
-  height: 13px;
+  height: 15px;
   padding-top: 0px;
 }
 
@@ -83,4 +83,42 @@
 .contact_info_h3 {
   background-color: #F5F5F5; //rgb(245,245,245);  //#1987D1; //#007ACC;
   height: 22px;
+}
+
+#sec_editor {
+  width: 700px;
+  height: 350px;
+}
+
+#dirtyEditorMsg {
+  display: none;
+  height: 25px;
+  background-color: #FFD6CC;
+  h4 {
+    color: #FF0000;
+    padding-top: 5px;
+  }
+}
+
+#pch_update_err_msg {
+  display: none;
+  height: 25px;
+  h4 {
+    color: #FF0000;
+    padding-top: 5px;
+  }
+}
+
+#pch_update_success_msg {
+  display: none;
+  height: 25px;
+  background-color: #CCF5CC;
+  h4 {
+    color: #009933;
+    padding-top: 5px;
+  }
+}
+
+#editor_container {
+  margin-top: 5px;
 }

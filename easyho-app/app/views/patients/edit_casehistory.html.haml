@@ -1,0 +1,107 @@
+/
+/ Puting tinymce editor assets in the our asset pipeline
+/
+= tinymce_assets
+
+
+= render :partial => "patients/patient_basic_info",:locals => {:curselect => ""}
+
+%div.span11
+  %h3
+    Editing case history of this patient ...
+%br
+%br    
+%div.container
+  %div.row
+    /
+    / Side bar
+    /
+    -if !@sec_display_info.nil?
+      %div.span3.profilesubsections
+        -cur_sec_id = "#{@select_secid}"
+        -cur_section_displayname = ""
+
+        %ul.nav.nav-list
+          - @sec_display_info.each do |each_section|
+            -if cur_sec_id.nil? || cur_sec_id == "" 
+              -cur_sec_id = "#{each_section.getSectionId}"
+            -if cur_sec_id == "#{each_section.getSectionId}" 
+              -cur_section_displayname = each_section.getDisplayName
+              %li.active
+                %a{:id => "#sec#{each_section.getSectionId}"}
+                  #{each_section.getDisplayName}
+            -else
+              %li
+                %a{:href => "#{editch_patient_path(@patient_entry)}?sec=#{each_section.getSectionId}", :id => "#sec#{each_section.getSectionId}"}
+                  #{each_section.getDisplayName}
+      %div.span9.offset3
+        = form_for(@patient_entry, :remote => true, :id => "pch_edit_form") do |f|
+          = f.error_messages
+          = hidden_field_tag 'from_ch_edit', 'true'
+          = hidden_field_tag 'sec_id', "#{cur_sec_id}"
+          %div.span4
+            %h3 #{cur_section_displayname}
+          %div#dirtyEditorMsg.span4.center
+            %h4 You have some unsaved changes
+          %div#pch_update_err_msg.span4.center
+            %h4 Error while saving your changes ...
+          %div#pch_update_success_msg.span4.center
+            %h4 Changes saved successfully
+          %div.span8{:id => "editor_container"}
+            = text_area_tag :sec_editor, "", :class => "tinymce sectiontexteditor"
+            %div.hide{:id => "hidden_text"}
+              -if !@current_pch_sec_html_content.nil?
+                = @current_pch_sec_html_content.html_safe
+          
+          %div.form-actions.span8.center
+            %button{:type => "submit", :class => "btn btn-large btn-primary"} Save these changes            
+              
+                
+/
+/ default initialization of tinymce ditor control. You need this init only once on a page
+/
+= tinymce :content_css => "/assets/tinymce_custom.css", :theme_advanced_font_sizes => "10px,12px,13px,14px,16px,18px,20px", :font_size_style_values => "10px,12px,13px,14px,16px,18px,20px", :oninit =>"loadDefaultText"
+
+
+:javascript
+  $(document).ready(function() {
+    setInterval(isEditorDirty, 10000);
+  });
+  
+  function loadDefaultText()
+  {
+       tinyMCE.get('sec_editor').setContent($('#hidden_text').html());
+       //This is needed to properly indetify dirty ness of editor.
+       tinyMCE.get('sec_editor').startContent = tinyMCE.get('sec_editor').getContent({format : 'raw'});
+
+  }
+  
+  function isEditorDirty()
+  {
+    if (tinyMCE.activeEditor.isDirty())
+    {
+      $('#pch_update_err_msg').hide();
+      $('#pch_update_success_msg').hide();
+      $('#dirtyEditorMsg').show();
+    }
+    else
+    {
+      $('#dirtyEditorMsg').hide();
+    }
+  }
+  
+  
+  //--------------------------------------------------------------------------
+  //
+  // We want to warn people if they are about to leave this page.
+  //
+  window.onbeforeunload = confirmExit;
+    
+  function confirmExit()
+  {
+    if (tinyMCE.activeEditor.isDirty())
+      return "Do you want to leave this page without saving your changes?"
+    else
+      return;
+  }
+                  

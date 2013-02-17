@@ -29,19 +29,54 @@ class PatientsController < ApplicationController
   
   def update
     id = params[:id]
-    dob_display = params[:patient1_dob]
-    if !dob_display.nil? && dob_display.empty?
-      params[:patient][:dob] = "" 
-    end
     @patient_entry = Patient.find(id)
     
-    if @patient_entry.update_attributes(params[:patient])
-      flash[:notice] = "Successfully updated.".html_safe
-      redirect_to contact_patient_path(@patient_entry)
+    if !params[:from_ch_edit].nil? && params[:from_ch_edit] == "true"
+      # Update case history case
+      content_to_save = params["sec_editor"]
+      section_id = params["sec_id"]
+        
+      @needed_pch_record = PchRecord.new
+      pch_rec_set = PchRecord.where("patient_id = ? and pch_sec_id = ?",@patient_entry.id, section_id)
+      if pch_rec_set.nil? || pch_rec_set.length == 0
+        #Need to create one.
+        logger.debug("AMOL: new record")
+        #needed_pch_record = PchRecord.new
+        @needed_pch_record.patient_id = @patient_entry.id
+        @needed_pch_record.pch_sec_id = section_id
+      else
+        #We'll update this
+        @needed_pch_record = pch_rec_set[0]
+        logger.debug("AMOL: existing record")
+      end
+      @needed_pch_record.htmltext = content_to_save
+      if @needed_pch_record.save
+        logger.debug("AMOL: saved")
+      else
+        logger.debug("AMOL: save error")
+      end
+      respond_to do |format|
+        format.js { render :template => "patients/pch_update", :formats => [:js],
+                        :handlers => :haml}
+      end  
     else
-      #error TBD
+      #
+      # Update contact info
+      # 
+      dob_display = params[:patient1_dob]
+      if !dob_display.nil? && dob_display.empty?
+        params[:patient][:dob] = "" 
+      end
+      
+      if @patient_entry.update_attributes(params[:patient])
+        flash[:notice] = "Successfully updated.".html_safe
+        redirect_to contact_patient_path(@patient_entry)
+      else
+        #error TBD
+      end
     end
   end
+  
   def new
     @newpatient = Patient.new
   end
@@ -111,8 +146,40 @@ def casehistory
   @sec_display_info = pch_sections_list()
     
   #Actual data
+  @pch_records = PchRecord.where("patient_id = ?", @patient_entry.id)
+  @pch_hash = {}
+  @pch_records.each do |each_record|
+    @pch_hash[each_record.pch_sec_id] = each_record.htmltext
+    logger.debug("secid= #{each_record.pch_sec_id}  htmltext=#{each_record.htmltext}")
+  end
   
   render :template => "patients/casehistory", :formats => [:html], :handlers => :haml, :layout => "patientprofile"
+end
+
+#Edit case history
+def editch
+  id = params[:id]
+  @patient_entry = Patient.find(id)
+  @select_secid = params[:sec]
+    
+  #Display sections and order
+  @sec_display_info = pch_sections_list()
+  
+  firstSecId = @sec_display_info[0].getSectionId
+  logger.debug("firstsecid= #{firstSecId}")
+  if @select_secid.nil? || @select_secid == "" 
+    @select_secid = firstSecId
+  end
+  logger.debug("Selectsecid= #{@select_secid}")
+  
+  #get content for the selected section
+  @current_pch_sec_html_content = nil
+  pch_records = PchRecord.where("patient_id = ? and pch_sec_id = ?", @patient_entry.id,@select_secid )
+  if(!pch_records.nil? && !pch_records[0].nil?)
+    @current_pch_sec_html_content = pch_records[0].htmltext
+  end
+  
+  render :template => "patients/edit_casehistory", :formats => [:html], :handlers => :haml
 end
 
 # ==========================================================================================

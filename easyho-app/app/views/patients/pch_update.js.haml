@@ -1,0 +1,11 @@
+var pche_form = $('#pch_edit_form');
+
+- if @needed_pch_record.errors.any?
+  $('#dirtyEditorMsg').hide();
+  $('#pch_update_success_msg').hide();
+  $('#pch_update_err_msg').show();
+- else
+  $('#dirtyEditorMsg').hide();
+  $('#pch_update_err_msg').hide();
+  $('#pch_update_success_msg').show();
+  tinyMCE.get('sec_editor').startContent = tinyMCE.get('sec_editor').getContent({format : 'raw'});

@@ -21,15 +21,19 @@
       / Scrollable target
       /
       %div.span9{:id => "to-Scroll"}
-        %h3 This case history is created on 17th December 1975.
+        %div.span6
+          %h3 This case history is created on 17th December 1975.
+        %div.span2.pull-right
+          %a.btn.btn-medium.btn-primary.section_edit_button{:href => editch_patient_path(@patient_entry)} Edit
+        %br
         %br
         - @sec_display_info.each do |each_section|
           %div{:id => "sec#{each_section.getSectionId}"}
             %div.section_title
               %h3 #{each_section.getDisplayName}
             %div.section_content
-              %p
-                test
+              -if !@pch_hash[each_section.getSectionId].nil?
+                = @pch_hash[each_section.getSectionId].html_safe
             %hr.section_end_line    
         /
         / Following empty lines are to take care of last empty section so that scrolling will behave properly.
@@ -58,6 +62,9 @@
         %br
         %br
         %br  
+        %br
+        %br
+        %br
         %br
         %br
         

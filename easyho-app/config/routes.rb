@@ -84,6 +84,7 @@ EasyhoApp::Application.routes.draw do
       get 'contact'
       get 'editcontact'
       get 'casehistory'
+      get 'editch'
     end
   end
   match '/patientlist', to: 'patients#list'
