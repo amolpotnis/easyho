@@ -3,54 +3,53 @@
 %div.row{:id => "personalcontact"}
   %h3.contact_info_h3 &nbsp;Personal information
   %br
-  %div.span8    
-    %p
-      %strong Address:
-      %br
-      -if !@patient_entry.homeaddress.nil?
-        = simple_format(h @patient_entry.homeaddress)
-  %div.span3
-    %p
-      %strong DOB
-      (mm/dd/yyyy): 
+  %div.span7.well.div_address    
+    /%p
+    %strong Address:
+    %br
+    -if !@patient_entry.homeaddress.nil?
+      = simple_format(h @patient_entry.homeaddress)
+  %div.span4.well.div_homecontact
+    %strong DOB
+    (mm/dd/yyyy): 
+    -if !@patient_entry.dob.nil?
       #{@patient_entry.dob.strftime("%m/%d/%Y")}
       -if @age_in_words != ""
-        #{@age_in_words}
-    %p
-      %strong Mobile: 
-      #{@patient_entry.mobile}
-    %p
-      %strong Home: 
-      #{@patient_entry.homephone}
-  %div.span10    
-    %p
-      %strong Email: 
-      #{@patient_entry.email}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{@age_in_words}
+    %br
+    %br
+    %strong Mobile: 
+    #{@patient_entry.mobile}
+    %br
+    %br
+    %strong Home: 
+    #{@patient_entry.homephone}
+  %div.span11.well.email_div    
+    %strong Email: 
+    #{@patient_entry.email}
   
 %div.row{:id => "officecontact"}
   %br
   %h3.contact_info_h3 &nbsp;Office information
   %br
-  %div.span10
-    %p
-      %strong Email: 
-      #{@patient_entry.jobemail}
-  %div.span10
-    %p
+  %div.span11.well.officeemail_div
+    %strong Email: 
+    #{@patient_entry.jobemail}
+  %div.span7.div_officephone_addr
+    %div.span4.well.officephone_div
       %strong Phone:
       #{@patient_entry.jobphone}
-  %div.span11    
-    %p
-      %strong Job description:
-      %br
-      -if !@patient_entry.jobdescription.nil?
-        = simple_format(h @patient_entry.jobdescription)
-  %div.span8    
-    %p
+    %div.span7.well.div_officeaddress    
       %strong Address:
       %br
       -if !@patient_entry.jobaddress.nil?
         = simple_format(h @patient_entry.jobaddress)
+  %div.span4.well.div_jobdesc
+    %strong Job description:
+    %br
+    -if !@patient_entry.jobdescription.nil?
+      = simple_format(h @patient_entry.jobdescription)
+  
   
 %div.center
   %br

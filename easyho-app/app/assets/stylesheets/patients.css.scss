@@ -78,6 +78,7 @@
 //Width of bigger textboxes on contact page
 #patient_homeaddress, #patient_jobaddress, #patient_jobdescription{
   width: 450px;
+  overflow: auto;
 }
 
 .contact_info_h3 {
@@ -122,3 +123,58 @@
 #editor_container {
   margin-top: 5px;
 }
+//-----------------------------------------------
+
+//Contact info page
+
+.div_address {
+  height: 125px;
+  margin-bottom: 5px;
+  overflow: auto;
+}
+.div_homecontact {
+  height: 125px;
+  width: 280px;
+  margin-bottom: 5px;
+}
+.email_div {
+  height: 10px;
+  width: 880px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.officeemail_div {
+  height: 10px;
+  width: 880px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.div_officephone_addr {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  width: 580px;
+}
+.officephone_div {
+  padding-top: 5px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: 5px;
+}
+.div_officeaddress {
+  height: 125px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  overflow: auto;
+}
+
+.div_jobdesc {
+  height: 158px;
+  width: 280px;
+  overflow: auto;
+}
+//-----------------------------------------------------
