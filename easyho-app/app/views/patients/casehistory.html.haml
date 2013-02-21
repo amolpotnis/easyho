@@ -32,12 +32,12 @@
             %div.section_title
               %div.span6
                 %h3 #{each_section.getDisplayName}
-              %div.span2.pull-right
+              %div.span1.pull-right
                 %a{:href => "#{editch_patient_path(@patient_entry)}?sec=#{each_section.getSectionId}"} Edit
-            %div.section_content
+            %div.section_content.well
               -if !@pch_hash[each_section.getSectionId].nil?
                 = @pch_hash[each_section.getSectionId].html_safe
-            %hr.section_end_line    
+            /%hr.section_end_line    
         /
         / Following empty lines are to take care of last empty section so that scrolling will behave properly.
         /    

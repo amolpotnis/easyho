@@ -34,20 +34,20 @@
               %li
                 %a{:href => "#{editch_patient_path(@patient_entry)}?sec=#{each_section.getSectionId}", :id => "#sec#{each_section.getSectionId}"}
                   #{each_section.getDisplayName}
-      %div.span9.offset3
+      %div.span9{:id => "actual_edit_pch_form"}
         = form_for(@patient_entry, :remote => true, :id => "pch_edit_form") do |f|
           = f.error_messages
           = hidden_field_tag 'from_ch_edit', 'true'
           = hidden_field_tag 'sec_id', "#{cur_sec_id}"
-          %div.span4
-            %h3 #{cur_section_displayname}
+          %div.span4{:id => "section_title_on_edit_form"}
+            %h4 #{cur_section_displayname}:
           %div#dirtyEditorMsg.span4.center
             %h4 You have some unsaved changes
           %div#pch_update_err_msg.span4.center
-            %h4 Error while saving your changes ...
+            %h4 Error while saving changes ...
           %div#pch_update_success_msg.span4.center
             %h4 Changes saved successfully
-          %div.span8{:id => "editor_container"}
+          %div.span9{:id => "editor_container"}
             = text_area_tag :sec_editor, "", :class => "tinymce sectiontexteditor"
             %div.hide{:id => "hidden_text"}
               -if !@current_pch_sec_html_content.nil?

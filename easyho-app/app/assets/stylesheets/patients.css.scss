@@ -54,6 +54,10 @@
 
 .section_content {
   padding-left: 20px;
+  background-color: #fff;    
+  p {
+    line-height: 1.3em;
+  } 
 }
 .section_end_line {
   background-color: #000;
@@ -86,8 +90,17 @@
   height: 22px;
 }
 
+
+#actual_edit_pch_form {
+  margin-left: 220px;
+}
+
+#editor_container {
+  margin-top: 5px;
+}
+
 #sec_editor {
-  width: 700px;
+  width: 650px;
   height: 350px;
 }
 
@@ -120,9 +133,11 @@
   }
 }
 
-#editor_container {
-  margin-top: 5px;
+#section_title_on_edit_form {
+  width: 325px;
 }
+
+
 //-----------------------------------------------
 
 //Contact info page
