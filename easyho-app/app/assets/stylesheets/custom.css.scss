@@ -118,7 +118,7 @@ footer ul li {
 //Modified header top nav bar
 //
 div.navbar-inner {
-  background-color: #FFB547; //#0066FF; //#2E53C1; //#708DE2; //#335CD6; //#006B8F; //#0099CC; //$gray;
+  background-color: #306AA4; //#FFB547; //#0066FF; //#2E53C1; //#708DE2; //#335CD6; //#006B8F; //#0099CC; //$gray;
   background-image: none;
   background-repeat: no-repeat;
   filter: none;
@@ -136,11 +136,11 @@ div.navbar-inner {
 div#upperinnerbar {
   //.navbar .nav > li {
     a {
-      color: #932500; //#8F0000; //#fff;
+      color: #fff; //#932500; //#8F0000;
     }
     a:hover {
-      //font-weight: bold;
-      color: #720000;
+      font-weight: bold;
+      //color: #720000;
     }
   //}
 }

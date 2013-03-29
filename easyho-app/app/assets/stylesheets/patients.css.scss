@@ -86,7 +86,7 @@
 }
 
 .contact_info_h3 {
-  background-color: #F5F5F5; //rgb(245,245,245);  //#1987D1; //#007ACC;
+  //background-color: #F5F5F5; //rgb(245,245,245);  //#1987D1; //#007ACC;
   height: 22px;
 }
 
@@ -191,5 +191,12 @@
   height: 158px;
   width: 280px;
   overflow: auto;
+}
+
+.contactinfo_line {
+  height: 2px;
+  background-color: #000;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 //-----------------------------------------------------

@@ -2,15 +2,18 @@
 
 %div.row{:id => "personalcontact"}
   %h3.contact_info_h3 &nbsp;Personal information
+  %hr.contactinfo_line
   %br
-  %div.span7.well.div_address    
+  %div.span7.div_address    
     /%p
     %strong Address:
+    /%span.label.label-inverse Address:
     %br
     -if !@patient_entry.homeaddress.nil?
       = simple_format(h @patient_entry.homeaddress)
-  %div.span4.well.div_homecontact
+  %div.span4.div_homecontact
     %strong DOB
+    /%span.label.label-inverse DOB
     (mm/dd/yyyy): 
     -if !@patient_entry.dob.nil?
       #{@patient_entry.dob.strftime("%m/%d/%Y")}
@@ -18,34 +21,43 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{@age_in_words}
     %br
     %br
-    %strong Mobile: 
+    %strong Mobile:
+    /%span.label.label-inverse Mobile: 
     #{@patient_entry.mobile}
     %br
     %br
-    %strong Home: 
+    %strong Home:
+    /%span.label.label-inverse Home: 
     #{@patient_entry.homephone}
-  %div.span11.well.email_div    
-    %strong Email: 
+  %div.span11.email_div    
+    %strong Email:
+    /%span.label.label-inverse Email: 
     #{@patient_entry.email}
   
 %div.row{:id => "officecontact"}
   %br
-  %h3.contact_info_h3 &nbsp;Office information
   %br
-  %div.span11.well.officeemail_div
-    %strong Email: 
+  %br
+  %h3.contact_info_h3 &nbsp;Office information
+  %hr.contactinfo_line
+  %div.span11.officeemail_div
+    %strong Email:
+    /%span.label.label-inverse Email: 
     #{@patient_entry.jobemail}
   %div.span7.div_officephone_addr
-    %div.span4.well.officephone_div
+    %div.span4.officephone_div
       %strong Phone:
+      /%span.label.label-inverse Phone:
       #{@patient_entry.jobphone}
-    %div.span7.well.div_officeaddress    
+    %div.span7.div_officeaddress    
       %strong Address:
+      /%span.label.label-inverse Address:
       %br
       -if !@patient_entry.jobaddress.nil?
         = simple_format(h @patient_entry.jobaddress)
-  %div.span4.well.div_jobdesc
+  %div.span4.div_jobdesc
     %strong Job description:
+    /%span.label.label-inverse Job description:
     %br
     -if !@patient_entry.jobdescription.nil?
       = simple_format(h @patient_entry.jobdescription)
