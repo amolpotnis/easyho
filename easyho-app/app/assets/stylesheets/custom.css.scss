@@ -118,7 +118,7 @@ footer ul li {
 //Modified header top nav bar
 //
 div.navbar-inner {
-  background-color: $gray;
+  background-color: #FFB547; //#0066FF; //#2E53C1; //#708DE2; //#335CD6; //#006B8F; //#0099CC; //$gray;
   background-image: none;
   background-repeat: no-repeat;
   filter: none;
@@ -136,10 +136,11 @@ div.navbar-inner {
 div#upperinnerbar {
   //.navbar .nav > li {
     a {
-      color: #fff;
+      color: #932500; //#8F0000; //#fff;
     }
     a:hover {
-      font-weight: bold;
+      //font-weight: bold;
+      color: #720000;
     }
   //}
 }
