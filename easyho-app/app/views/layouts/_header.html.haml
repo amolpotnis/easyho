@@ -3,9 +3,9 @@
     /= link_to "sample app", '#', id: "logo"
     /%div.container
     -if signed_in?
-      = link_to image_tag("logo1.png", alt: "ZenPills", id: 'logo'), myopd_path
+      = link_to image_tag("logo2.png", alt: "ZenPills", id: 'logo'), myopd_path
     -else
-      = link_to image_tag("logo1.png", alt: "ZenPills", id: 'logo'), ''
+      = link_to image_tag("logo2.png", alt: "ZenPills", id: 'logo'), ''
     %nav
       %ul.nav.pull-right
         -if !signed_in?
