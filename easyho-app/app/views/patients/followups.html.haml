@@ -1,0 +1,4 @@
+= render :partial => "patients/patient_basic_info",:locals => {:curselect => "followups"}
+%div.row
+  %a.btn.btn-danger.pull-right{:href => new_patient_patient_followup_path(@patient_entry)} + New followup
+  %strong #{@patient_followups.length} followups

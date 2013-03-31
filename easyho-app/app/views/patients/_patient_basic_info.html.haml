@@ -18,8 +18,16 @@
       -else
         %li
           %a{:href => casehistory_patient_path(@patient_entry)} Case history
-      %li
-        %a{:href => sample_path} Followups
-      %li
-        %a{:href => sample_path} Symptoms chart
+      -if curselect == "followups"
+        %li.active
+          /%a{:href => followups_patient_path(@patient_entry)} Followups
+          %a{:href => patient_patient_followups_path(@patient_entry)} Followups
+      -else
+        %li
+          /%a{:href => followups_patient_path(@patient_entry)} Followups
+          %a{:href => patient_patient_followups_path(@patient_entry)} Followups
+      /%li
+      /  %a{:href => sample_path} Followups
+      /%li
+      /  %a{:href => sample_path} Symptoms chart
         

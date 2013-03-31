@@ -1,0 +1,17 @@
+= render :partial => "patients/patient_basic_info",:locals => {:curselect => "none"}
+%div.row
+  %h4 New followup information
+  = form_for([@patient_entry,@newfollowup]) do |f|
+    = f.error_messages
+    %div.row
+      %div.span6
+        = f.label("Observations*")
+        = f.text_area :observations, :rows => 4
+      
+      %div.span6
+        = f.label("Medicines*")
+        = f.text_area :medicines, :rows => 4
+    
+    %div.row.form-actions.center
+      %button{:type => "submit", :class => "btn btn-large btn-primary"} Save
+      %a{:class => "btn btn-large", :href => patient_patient_followups_path(@patient_entry)} Cancel 

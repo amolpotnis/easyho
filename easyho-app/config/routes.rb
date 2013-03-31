@@ -63,7 +63,7 @@ EasyhoApp::Application.routes.draw do
   # ////DUMMY trials
   match 'sample' => 'patients#sample'
   #match 'patientcontact' => 'patients#contact'
-  match 'followups' => 'patients#followups'
+  #match 'followups' => 'patients#followups'
   # //////
   
   #Exposing main_users as users for convenience
@@ -86,6 +86,9 @@ EasyhoApp::Application.routes.draw do
       get 'casehistory'
       get 'editch'
     end
+    
+    #Exposing patient_followups as followups for convenience
+    resources :patient_followups, :path => :followups
   end
   match '/patientlist', to: 'patients#list'
   #match '/patientsearch', to: 'patients#search'
