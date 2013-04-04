@@ -2,3 +2,40 @@
 %div.row
   %a.btn.btn-danger.pull-right{:href => new_patient_patient_followup_path(@patient_entry)} + New followup
   %strong #{@patient_followups.length} followups
+
+- if @patient_followups.length > 0
+  %br
+  %div.row
+    %table{:class => "table table-hover table-bordered  table-condensed"}
+      %thead
+        %tr
+          %th.f_date_column 
+            Date (mm/dd/yyyy)
+          %th.f_obs_column Observations
+          %th.f_med_column Medicines
+          %th.f_ops_column 
+      %tbody
+        - @patient_followups.each do |each_followup|
+          - if !@currow.nil? && !@currow.empty? && @currow == "#{each_followup.id}"
+            - rowclassstr = "selectedfollowuprow"
+          -else
+            - rowclassstr = "nothing"
+          
+          %tr{:class => "#{rowclassstr}"}
+            %td.f_date_column
+              = each_followup.created_at.strftime("%m/%d/%Y")
+            %td.f_obs_column
+              = each_followup.observations.html_safe
+            %td.f_med_column
+              = each_followup.medicines.html_safe
+            %td.f_ops_column
+              %a{:href => edit_patient_patient_followup_path(@patient_entry, each_followup)}
+                %i.icon-edit
+              &nbsp;&nbsp;&nbsp;
+              %a{:href => ""}
+                %a{:href => ""}
+                %i.icon-remove    
+              %br
+              %br
+              %br
+              %br

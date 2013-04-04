@@ -1,0 +1,4 @@
+= render :partial => "patients/patient_basic_info",:locals => {:curselect => "none"}
+%div.row
+  %h4 Edit followup information
+  = render :partial => "patient_followups/new_edit",:locals => {:mode => "edit"}

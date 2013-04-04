@@ -3,6 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .followup_editors {
-  width: 450px;
+  width: 400px;
   height: 250px;
+}
+
+.f_date_column {
+  width: 16%;
+}
+
+.f_obs_column{
+  width: 40%;
+}
+
+.f_med_column{
+  width: 40%;
+}
+
+.f_ops_column{
+  width: 4%;
+}
+
+tr.selectedfollowuprow td{
+  background-color: #4DFFB8;
 }

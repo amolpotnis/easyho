@@ -1,0 +1,50 @@
+= tinymce_assets
+
+= form_for([@patient_entry,@patient_followup]) do |f|
+  = f.error_messages
+  %div.row
+    %div.span6
+      = f.label("Observations*")
+      = text_area_tag :f_obs_editor, "", :class => "tinymce followup_editors"
+    
+    %div.span6
+      = f.label("Medicines*")
+      /= f.text_area :medicines, :rows => 4
+      = text_area_tag :f_med_editor, "", :class => "tinymce followup_editors"
+      
+    %div.hide{:id => "hidden_obs_text"}
+      -if !@patient_followup.observations.nil?
+        = @patient_followup.observations.html_safe
+    
+    %div.hide{:id => "hidden_med_text"}
+      -if !@patient_followup.medicines.nil?
+        = @patient_followup.medicines.html_safe
+  
+  %div.row.form-actions.center
+    %button{:type => "submit", :class => "btn btn-large btn-primary", :onClick => "setHiddenText"} Save
+    %a{:class => "btn btn-large", :href => patient_patient_followups_path(@patient_entry)} Cancel
+      
+
+/
+/ default initialization of tinymce ditor control. You need this init only once on a page
+/
+= tinymce :content_css => "/assets/tinymce_custom.css", :theme_advanced_font_sizes => "10px,12px,13px,14px,16px,18px,20px", :font_size_style_values => "10px,12px,13px,14px,16px,18px,20px", :oninit =>"loadDefaultText", :theme_advanced_statusbar_location => "none"
+
+:javascript
+  function loadDefaultText()
+  {
+       tinyMCE.get('f_obs_editor').setContent($('#hidden_obs_text').html());
+       //This is needed to properly indetify dirty ness of editor.
+       tinyMCE.get('f_obs_editor').startContent = tinyMCE.get('f_obs_editor').getContent({format : 'raw'});
+       
+       tinyMCE.get('f_med_editor').setContent($('#hidden_med_text').html());
+       //This is needed to properly indetify dirty ness of editor.
+       tinyMCE.get('f_med_editor').startContent = tinyMCE.get('f_med_editor').getContent({format : 'raw'});
+
+  }
+  
+  function setHiddenText()
+  {
+    $('#hidden_obs_text').html(tinyMCE.get('f_obs_editor').getContent());
+    $('#hidden_med_text').html(tinyMCE.get('f_med_editor').getContent());
+  }

@@ -11,32 +11,64 @@ class PatientFollowupsController < ApplicationController
     #Actual data
     @patient_followups = PatientFollowup.where("patient_id = ?", @patient_entry.id).order("created_at DESC")
     
-    render :template => "patients/followups", :formats => [:html], :handlers => :haml
+    @currow = params[:currow]
+    
+    render :template => "patient_followups/followups", :formats => [:html], :handlers => :haml
   end
   
   def new
     id = params[:patient_id]
     @patient_entry = Patient.find(id)
-    @newfollowup = PatientFollowup.new
-    render :template => "patients/newfollowup", :formats => [:html], :handlers => :haml
+    @patient_followup = PatientFollowup.new
+    render :template => "patient_followups/newfollowup", :formats => [:html], :handlers => :haml
   end
   
   def create
     id = params[:patient_id]
     @patient_entry = Patient.find(id)
     
-    @newfollowup = PatientFollowup.new
-    @newfollowup.patient_id = @patient_entry.id
-    @newfollowup.obseravations = params[:f_obs_editor] 
-    @newfollowup.medicines = params[:f_med_editor]
+    @patient_followup = PatientFollowup.new
+    @patient_followup.patient_id = @patient_entry.id
+    @patient_followup.observations = params[:f_obs_editor] 
+    @patient_followup.medicines = params[:f_med_editor]
         
-    if @newfollowup.save
-      logger.info("Created new followup entry for patient with id=" + @newpatient.id.to_s)
-      redirect_to patient_path(@newpatient)
+    if @patient_followup.save
+      logger.info("Created new followup entry for patient with id=" + @patient_entry.id.to_s)
+      redirect_to patient_patient_followups_path(@patient_entry)+"?currow=#{@patient_followup.id}"
     else
-      logger.error("Followup addition failed for patient with id=" + @newpatient.id.to_s)
-      logger.error(@newfollowup.errors.full_messages)
-      render 'new'
+      logger.error("Followup addition failed for patient with id=" + @patient_entry.id.to_s)
+      logger.error(@patient_followup.errors.full_messages)
+      render 'newfollowup'
+    end
+  end
+  
+  def edit
+    patient_id = params[:patient_id]
+    @patient_entry = Patient.find(patient_id)
+    
+    id = params[:id]
+    @patient_followup = PatientFollowup.find(id)
+    
+    #render :template => "editfollowup", :formats => [:html], :handlers => :haml
+  end
+  
+  def update
+    
+    patient_id = params[:patient_id]
+    @patient_entry = Patient.find(patient_id)
+    
+    id = params[:id]
+    @patient_followup = PatientFollowup.find(id)
+    
+    @patient_followup.observations = params[:f_obs_editor]
+    @patient_followup.medicines = params[:f_med_editor]
+      
+    if @patient_followup.save
+      flash[:notice] = "Successfully updated.".html_safe
+      redirect_to patient_patient_followups_path(@patient_entry)+"?currow=#{@patient_followup.id}"
+    else
+      logger.error(@patient_followup.errors.full_messages)
+      render 'edit'
     end
   end
   
