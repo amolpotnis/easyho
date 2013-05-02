@@ -1,0 +1,26 @@
+%h2.homepage_title Patient data management system for classical homeopathy practitioners
+%div.row
+  %div.homepage_main_image_div.span12
+    -if !signed_in?
+      %div.span2.offset9.well
+        %div.center.homepage_signup_div
+          %h4.center New user?
+          %div.center
+            %a.btn.btn-danger.btn-large{:href => signup_path} Sign Up
+%div.row.span12
+  %div.span4.homepage_small_msg_div
+    %div.title
+      %h4.title_font Access from anywhere
+    %p
+      Whether it is your clinic, home, or any other place, your OPD and patient data is always accessible to you as long as you have a working internet connection. 
+  %div.span4.homepage_small_msg_div
+    %div.title
+      %h4.title_font Simple to use
+    %p
+      We believe that simplicity comes by providing only critical features and by giving the highest importance to the usability of those features. Our offering is the outcome of this philosophy.
+  %div.span4.homepage_small_msg_div
+    %div.title        
+      %h4.title_font Automatic backup
+    %p
+      Your patient data does not any more depend on the health of your PC or laptop. It is automatically backed up when it is with us.
+  

@@ -29,12 +29,12 @@
             %td.f_med_column
               = each_followup.medicines.html_safe
             %td.f_ops_column
-              %a{:href => edit_patient_patient_followup_path(@patient_entry, each_followup)}
-                %i.icon-edit
+              %a{:href => edit_patient_patient_followup_path(@patient_entry, each_followup)} Edit
+              /  %i.icon-edit
               &nbsp;&nbsp;&nbsp;
-              %a{:href => ""}
-                %a{:href => ""}
-                %i.icon-remove    
+              %a{:href => ""} Delete
+              /  %a{:href => ""}
+              /  %i.icon-remove    
               %br
               %br
               %br

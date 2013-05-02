@@ -13,3 +13,44 @@
     font-size: 2.4em;
   }
 }
+
+
+//About homepage
+//================================================================================
+.homepage_title {
+  font-size: 1.8em;
+  color: #000;
+}
+
+.homepage_main_image_div {
+  background-image: url(/assets/home-image2.png);
+  //height: 479px;
+  //width: 1000px;
+  //height: 479px;
+  width: 960px;
+  height: 460px;
+}
+
+.homepage_signup_div {
+}
+
+.homepage_small_msg_div {
+  border: 1px solid;
+  border-color: #000;
+  border-radius: 5px;
+  height: 150px;
+  width: 280px;
+  padding-left: 5px;
+  padding-right: 5px;
+  .title {
+    background-color: #306AA4;
+    height: 25px;
+    .title_font {
+      color: #fff;
+      text-align: center;
+      font-size: 1.2em;
+    }
+  }
+}
+// END homepage
+//================================================================================

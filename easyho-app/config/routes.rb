@@ -58,7 +58,8 @@ EasyhoApp::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   
   
-  root :to => 'main_users#myopd'
+  #root :to => 'main_users#myopd'
+  root :to => 'main_users#home'
   
   # ////DUMMY trials
   match 'sample' => 'patients#sample'
@@ -78,6 +79,7 @@ EasyhoApp::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
   
   match '/myopd', to: 'main_users#myopd'
+  match '/home', to: 'main_users#home'
   
   resources :patients do
     member do

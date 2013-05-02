@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     #For default auth mechanism
     user = MainUser.find_by_email(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      # Sign the user in and redirect to root.
+      # Sign the user in and redirect to his default page
       remember_flag = false
       remember_flag_val = params[:remember_me]
       if !remember_flag_val.nil? 
@@ -34,6 +34,6 @@ class SessionsController < ApplicationController
   
   def destroy
     sign_out
-    redirect_to signin_path
+    redirect_to home_path
   end
 end

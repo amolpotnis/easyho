@@ -1,6 +1,12 @@
 class MainUsersController < ApplicationController
   before_filter :signing_is_must, only: [:myopd]
-   
+  
+  #To serve homepage 
+  def home
+    @signup = true
+    @homepage = true
+  end  
+  
   def new
     @mainuser = MainUser.new
     @signup = true
